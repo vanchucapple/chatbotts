@@ -1,0 +1,49 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+- story: Choice hotline
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: hotline
+  - action: utter_hotline
+  - intent: info_contacts
+  - action: action_get_info
+- story: Choice web
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: website
+  - action: utter_web
+- story: Choice quick consultation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: quick_consultation
+  - action: utter_quick_consultation
+- story: ask list department_major
+  steps:
+  - intent: ask_list_department_major
+    entities:
+      - major: ngành
+      - department: khoa
+  - action: action_search_list_department_major
+- story: ask info contacts
+  steps:
+  - intent: info_contacts
+    entities:
+      - name_info: Nguyễn Văn Long
+      - phone_info: 01249312412
+  - action: action_get_info
+
+- story: ask exits of major
+  steps:
+  - intent: ask_exist
+    entities:
+      - name_major: quản trị kinh doanh
+  - action: action_search_exits

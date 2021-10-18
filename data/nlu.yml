@@ -1,0 +1,98 @@
+version: "2.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - chào admin
+      - hi
+      - e chào admin
+      - em chào ad
+      - e chào thầy
+      - em chào thầy
+      - e chào cô
+      - em chào cô
+      - hi admin
+      - hi ad
+      - e chào ad
+      - dạ e chào ad
+      - dạ ad cho e hỏi
+      - ad ơi cho em hỏi
+      - dạ thầy cô cho em hỏi
+
+  - intent: quick_consultation
+    examples: |
+      - e muốn được tư vấn nhanh
+      - em muốn đc tư vấn nhanh
+      - tư vấn nhanh
+      - e cần được tư vấn nhanh
+  - intent: hotline
+    examples: |
+      - liên hệ hotline
+      - gọi điện trực tiếp
+      - tư vấn trực tiếp
+      - cho e tư vấn trực tiếp
+      - e muốn được tư vấn trực tiếp
+      - e muốn được liên hệ hotline
+  - intent: website
+    examples: |
+      - website của trường là gì?
+      - cho e truy cập vào web
+      - trang web của trường là gì ạ?
+      - truy cập vào web
+      - cho e hỏi trang web của trường là gì?
+      - truy cập vào web của trường
+      - truy cập vào website của trường
+  - intent: info_contacts
+    examples: |
+      - họ tên [Nguyễn Văn Long](name_info)
+      - họ tên e là [Nguyễn Văn Long](name_info)
+      - [Trần Văn Đạt](name_info)
+      - [Trần Thị Hằng Nga](name_info)
+      - [Trần Thị Hoài](name_info)
+      - [Nguyễn Thị Trinh](name_info)
+      - [Nguyễn Hoài Nam](name_info)
+      - [Nguyễn Tiến Dũng](name_info)
+      - [Trương Tiến Dũng](name_info)
+      - em tên là [Nguyễn Tiến Dũng](name_info)
+      - họ tên e là [Nguyễn Tiến Dũng](name_info)
+      - SĐT [09249123912](phone_info)
+      - [09249124234](phone_info)
+      - [01249312412](phone_info)
+      - [13422449123912](phone_info)
+      - sđt e [0924123124912](phone_info)
+      - họ tên e là [Dương Văn An](name_info) , sđt [09249123912](phone_info)
+      - e tên là [Trần Văn Minh](name_info), sđt [09241541212](phone_info)
+      - số điện thoại [051232912](phone_info)
+      - số e là [061241223912](phone_info)
+  - intent: ask_list_department_major
+    examples: |
+      - cho e hỏi trường có bao nhiêu [khoa](department)?
+      - cho e xin danh sách các [khoa](department) của trường
+      - trường có các [khoa](department) nào ạ?
+      - trường gồm các [khoa](department) nào ạ?
+      - thầy cô cho em hỏi trường gồm các [khoa](department) nào?
+      - dạ cho e hỏi trường có các [khoa](department) học nào?
+      - dạ cho e xin danh sách các [khoa](department) của trường
+      - trường có các [khoa](department) học nào ?
+      - danh sách các [khoa](department) của trường
+      - cho e hỏi trường có bao nhiêu [ngành](major)?
+      - cho e xin danh sách các [ngành](major) của trường
+      - trường có các [ngành](major) nào ạ?
+      - trường gồm các [ngành](major) nào ạ?
+      - thầy cô cho em hỏi trường gồm các [ngành](major) nào?
+      - dạ cho e hỏi trường có các [ngành](major) học nào?
+      - dạ cho e xin danh sách các [ngành](major) của trường
+      - trường có các [ngành](major) học nào ?
+      - danh sách các [ngành](major) của trường
+  - intent: ask_exist
+    examples: |
+      - cho e hỏi trường có ngành [công nghệ kỹ thuật ô tô](name_major) không ạ?
+      - cho e hỏi trường có ngành [Công nghệ kỹ thuật cơ khí](name_major) không ạ?
+      - trường có ngành [quản trị kinh doanh](name_major) không ạ?
+      - trường có ngành [kế toán](name_major) ko ạ?
+      - cho e hỏi có ngành [công nghệ thông tin](name_major) ko?
+      - cho e hỏi có ngành [công nghệ kỹ thuật máy tính](name_major) ko?
+      - e muốn hỏi trường có ngành [Công nghệ kỹ thuật cơ khí](name_major) ko ạ?
+      - e muốn hỏi trường có ngành [quản trị nhân lực](name_major) ko ạ?
+      - trường có ngành  [công nghệ kỹ thuật điện tử - viễn thông](name_major) ko ạ?
+      - cho e hỏi trường có ngành [sư phạm công nghệ](name_major) ko ạ?

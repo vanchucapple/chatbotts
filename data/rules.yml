@@ -1,0 +1,36 @@
+version: "2.0"
+
+rules:
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+- rule: Greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+- rule: Choice contacts hotline
+  steps:
+  - intent: hotline
+  - action: utter_hotline
+- rule: Choice web
+  steps:
+  - intent: website
+  - action: utter_web
+- rule: Choice tư vấn nhanh
+  steps:
+  - intent: quick_consultation
+  - action: utter_quick_consultation
+- rule: Ask list department or major
+  steps:
+  - intent: ask_list_department_major
+  - action: action_search_list_department_major
+- rule: Ask list department or major
+  steps:
+  - intent: info_contacts
+  - action: action_get_info
+- rule: Ask exits of major
+  steps:
+  - intent: ask_exist
+  - action: action_search_exits

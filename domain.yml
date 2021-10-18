@@ -1,0 +1,73 @@
+version: "2.0"
+
+intents:
+  - greet
+  - bot_challenge
+  - hotline
+  - website
+  - quick_consultation
+  - info_contacts:
+      use_entities:
+        - name_info
+        - phone_info
+  - ask_list_department_major:
+      use_entities:
+        - department
+        - major
+  - ask_exist:
+      use_entities:
+        - name_major
+entities:
+  - name_info
+  - phone_info
+  - department
+  - major
+  - name_major
+slots:
+  major:
+    auto_fill: true
+    type: text
+  department:
+    auto_fill: true
+    type: text
+  phone_info:
+    auto_fill: true
+    type: text
+  name_info:
+    auto_fill: true
+    type: text
+  name_major:
+    auto_fill: true
+    type: text
+
+actions:
+  - action_search_list_department_major
+  - action_get_info
+  - action_search_exits
+responses:
+  utter_greet:
+  - text: "chào mừng bạn đến với fanpage về tuyển sinh trường đại học A có địa chỉ tại B, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang web tuyển sinh"
+    buttons:
+      - title: "Tư vấn nhanh"
+        payload: "/quick_consultation"
+      - title: "Liên hệ hotline"
+        payload: "/hotline"
+      - title: "Truy cập website"
+        payload: "website"
+  utter_hotline:
+  - text: "Bạn nhập họ và tên, SĐT sau đó sẽ có người gọi tư vấn trực tiếp đến bạn hoặc bạn có thể chủ động gọi vào hotline sau để gặp người tư vấn: 0926268900"
+  utter_web:
+  - text: "Bạn có thể xem tất cả thông tin ở địa chỉ sau: http://tuyensinh.vuted.edu.vn/ "
+  utter_quick_consultation:
+  - text: "Gợi ý các vấn đề có thể bạn quan tâm :\n
+  - Thông tin các ngành\n
+  - Điểm chuẩn năm trước\n
+  - Hướng dẫn đăng ký xét tuyển\n
+  Bạn muốn hỏi thông tin chi tiết nào?
+  "
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
