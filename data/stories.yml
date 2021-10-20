@@ -46,4 +46,13 @@ stories:
   - intent: ask_exist
     entities:
       - name_major: quản trị kinh doanh
+      - name_column: xét học bạ
   - action: action_search_exits
+
+- story: ask search info each major
+  steps:
+  - intent: ask_search_info_major
+    entities:
+      - name_major: quản trị kinh doanh
+      - name_column: học phí
+  - action: action_search_info_major
