@@ -45,7 +45,7 @@ class ActionSearchListDepartmentMajor(Action):
         print("major: ",major)
 
         if department == None:
-            dispatcher.utter_message(text=f"Dách sách các ngành mà trường đào tạo gồm: \n {df.ngành}")
+            dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
         return []
 
 class ActionGetInfo(Action):
@@ -87,38 +87,36 @@ class ActionSearchExits(Action):
         print("name_department: ",name_department)
         print("name_major: ",name_major)
         print("name_column: ",name_column)
-        list_major = df['ngành']
+        list_major = df['Ngành']
         result_entites = get_matching_entites(name_major,list_major,80)
         if name_column != None:
             if result_entites == []:
-                dispatcher.utter_message(text=f" Trường không đào tạo ngành {name_major}")
-                dispatcher.utter_message(text=f"Dách sách các ngành mà trường đào tạo gồm: \n {df.ngành}")
+                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
+                dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
             else :
-                if df.loc[df['ngành']== result_entites]['Xét tuyển theo học bạ'].values[0] != []:
-                    result_query = str(df.loc[df['ngành']== result_entites]['Xét tuyển theo học bạ'].values[0])
+                if df.loc[df['Ngành']== result_entites]['Xét tuyển theo học bạ'].values[0] != []:
+                    result_query = str(df.loc[df['Ngành']== result_entites]['Xét tuyển theo học bạ'].values[0])
                     dispatcher.utter_message(text=f"Ngành {name_major} có xét" f"tuyển theo học bạ {result_query}"
-                    f"Bạn muốn hỏi gì thêm về ngành này không?")
+                    f"Bạn muốn hỏi gì thêm về Ngành này không?")
                     
                 else: 
                     dispatcher.utter_message(text=f"Ngành {name_major} không xét tuyển theo học bạn. Thông tin đến bạn!")
         elif (name_department == None) & (name_column == None) & (name_major != None):
             print("result_entites: ",result_entites)
             if result_entites == []:
-                dispatcher.utter_message(text=f" Trường không đào tạo ngành {name_major}")
-                dispatcher.utter_message(text=f"Dách sách các ngành mà trường đào tạo gồm: \n {df.ngành}")
+                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
+                dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
             else :
                 message = "Mã ngành: " \
-                + str(df.loc[df['ngành']== result_entites]['mã ngành'].values[0]) \
-                + " Khối thi: " \
-                + str(df.loc[df['ngành']== result_entites]['khối thi'].values[0])
+                + str(df.loc[df['Ngành']== result_entites]['Mã ngành'].values[0])
                 print(message)
-                dispatcher.utter_message(text=f" Trường có đào tạo ngành {name_major}." \
+                dispatcher.utter_message(text=f" Trường có đào tạo Ngành {name_major}." \
                 f"{message}" \
-                f". Bạn muốn hỏi gì thêm về ngành này không?")
+                f". Bạn có thể tham khảo chi tiết tại http://tuyensinh.vuted.edu.vn/. Bạn muốn hỏi gì thêm về Ngành này không?")
         return [AllSlotsReset()]
     
 
-list_name_col = ["Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "khối thi", "Điểm năm 2021"]
+list_name_col = ["Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "Khối thi", "Điểm năm 2021"]
 
 
 class ActionSearchInfoMajor(Action):
@@ -135,15 +133,15 @@ class ActionSearchInfoMajor(Action):
         name_major = tracker.get_slot("name_major")
         print("name_major: ",name_major)
         print("name_column: ",name_column)
-        list_major = df['ngành']
+        list_major = df['Ngành']
         result_entites_major = get_matching_entites(name_major,list_major,80)
         result_entites_column = get_matching_entites(name_column,list_name_col,50)
         print("result_entites_major", result_entites_major)
         print("result_entites_column", result_entites_column)
         if name_major == None:
             dispatcher.utter_message(text=f"Bạn vui lòng hỏi rõ hơn, bạn "
-                                        f"đang tìm kiếm thông tin gì cho chuyên ngành nào?")
+                                        f"đang tìm kiếm thông tin gì cho chuyên Ngành nào?")
         else:
-            message = str(df.loc[df['ngành'] == result_entites_major][result_entites_column].values[0])
+            message = str(df.loc[df['Ngành'] == result_entites_major][result_entites_column].values[0])
             dispatcher.utter_message(text=f"Thông tin {result_entites_column} của {result_entites_major}: {message} . Thông tin đến bạn!")
         return []
