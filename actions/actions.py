@@ -5,7 +5,11 @@ from rasa_sdk.executor import CollectingDispatcher
 from fuzzywuzzy import fuzz
 from rasa_sdk.events import SlotSet, AllSlotsReset, SessionStarted, ActionExecuted, EventType
 import pandas as pd
+
 df = pd.read_excel("Tuyensinh.xlsx")
+
+
+list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ xét tuyển"]
 
 def get_matching_entites(entities,list_name,threshold):
 
@@ -27,8 +31,6 @@ def get_key(my_dict,val):
             return key
 
 
-
-
 class ActionSearchListDepartmentMajor(Action):
 
 
@@ -41,10 +43,22 @@ class ActionSearchListDepartmentMajor(Action):
 
         department = tracker.get_slot("department")
         major = tracker.get_slot("major")
+        name_department = tracker.get_slot("name_department")
         print("department: ",department)
         print("major: ",major)
-
-        if department == None:
+        if (department != None) & (name_department != None):
+            list_name_department = df['Khoa']
+            
+            result_entites_column = get_matching_entites(department,list_name_col,50)
+            
+            result_entites_department = get_matching_entites(name_department,list_name_department,50)
+            
+            message = df.loc[df[result_entites_column] == result_entites_department]['Ngành'].unique()
+            
+            dispatcher.utter_message(text=f"Gửi bạn danh sách các ngành của khoa {result_entites_department} : {message} ")
+        elif (department != None) & (name_department == None):
+            dispatcher.utter_message(text=f"Gửi bạn danh sách các Khoa của trường : {df['Khoa'].unique()}")
+        elif (department == None) & (name_department == None) & (major != None):
             dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
         return []
 
@@ -116,8 +130,6 @@ class ActionSearchExits(Action):
         return [AllSlotsReset()]
     
 
-list_name_col = ["Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "Khối thi", "Điểm năm 2021"]
-
 
 class ActionSearchInfoMajor(Action):
 
@@ -143,5 +155,22 @@ class ActionSearchInfoMajor(Action):
                                         f"đang tìm kiếm thông tin gì cho chuyên Ngành nào?")
         else:
             message = str(df.loc[df['Ngành'] == result_entites_major][result_entites_column].values[0])
-            dispatcher.utter_message(text=f"Thông tin {result_entites_column} của {result_entites_major}: {message} . Thông tin đến bạn!")
+            dispatcher.utter_message(text=f"Gửi bạn thông tin {result_entites_column} của {result_entites_major}: {message} . Thông tin đến bạn!")
+        return []
+
+class ActionSearchFile(Action):
+
+
+    def name(self) -> Text:
+        return "action_search_file"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        name_column = tracker.get_slot("name_column")
+        result_entites_column = get_matching_entites(name_column,list_name_col,30)
+        print("result_entites_column", result_entites_column)
+        message = str(df[result_entites_column][0])
+        dispatcher.utter_message(text=f"Gửi bạn thông tin {result_entites_column} : {message}")
         return []

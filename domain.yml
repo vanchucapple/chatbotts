@@ -14,6 +14,7 @@ intents:
       use_entities:
         - department
         - major
+        - name_department
   - ask_exist:
       use_entities:
         - name_major
@@ -22,6 +23,9 @@ intents:
       use_entities:
         - name_column
         - name_major
+  - ask_file:
+      use_entities:
+        - name_column
 entities:
   - name_info
   - phone_info
@@ -29,6 +33,7 @@ entities:
   - major
   - name_major
   - name_column
+  - name_department
 slots:
   major:
     auto_fill: true
@@ -48,11 +53,15 @@ slots:
   name_column:
     auto_fill: true
     type: text
+  name_department:
+    auto_fill: true
+    type: text
 actions:
   - action_search_list_department_major
   - action_get_info
   - action_search_exits
   - action_search_info_major
+  - action_search_file
 responses:
   utter_greet:
   - text: "chào mừng bạn đến với fanpage về tuyển sinh trường đại học A có địa chỉ tại B, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang web tuyển sinh"

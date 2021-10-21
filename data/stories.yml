@@ -32,6 +32,7 @@ stories:
     entities:
       - major: ngành
       - department: khoa
+      - name_department: công nghệ thông tin
   - action: action_search_list_department_major
 - story: ask info contacts
   steps:
@@ -56,3 +57,10 @@ stories:
       - name_major: quản trị kinh doanh
       - name_column: học phí
   - action: action_search_info_major
+
+- story: ask file
+  steps:
+  - intent: ask_file
+    entities:
+      - name_column: Hồ sơ
+  - action: action_search_file

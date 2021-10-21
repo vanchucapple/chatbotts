@@ -84,6 +84,54 @@ nlu:
       - dạ cho e xin danh sách các [ngành](major) của trường
       - trường có các [ngành](major) học nào ?
       - danh sách các [ngành](major) của trường
+      - cho e hỏi [khoa](department) [công nghệ thông tin](name_department) gồm các ngành nào?
+      - dạ cho e hỏi [khoa](department) [công nghệ thông tin](name_department) có những ngành nào ạ?
+      - dạ ad cho e hỏi [khoa](department) [công nghệ thông tin](name_department) có những ngành nào?
+      - cho e hỏi [khoa](department) [công nghệ thông tin](name_department) có ngành nào?
+      - [khoa](department) [công nghệ thông tin](name_department) có ngành nào?
+      - cho e hỏi [khoa](department) [công nghệ thông tin](name_department) có những ngành nào?
+      - danh sách các ngành của [khoa](department) [công nghệ thông tin](name_department)
+      - cho e xin danh sách các ngành [khoa](department) [công nghệ thông tin](name_department)?
+      - cho e hỏi [khoa](department) [điện tử](name_department) gồm các ngành nào?
+      - dạ cho e hỏi [khoa](department) [điện tử](name_department) có những ngành nào ạ?
+      - dạ ad cho e hỏi [khoa](department) [điện tử](name_department) có những ngành nào?
+      - cho e hỏi [khoa](department) [điện tử](name_department) có ngành nào?
+      - [khoa](department) [điện tử](name_department) có ngành nào?
+      - cho e hỏi [khoa](department) [điện tử](name_department) có những ngành nào?
+      - danh sách các ngành của [khoa](department) [điện tử](name_department)
+      - cho e xin danh sách các ngành [khoa](department) [điện tử](name_department)?
+      - cho e hỏi [khoa](department) [kinh tế](name_department) gồm các ngành nào?
+      - dạ cho e hỏi [khoa](department) [kinh tế](name_department) có những ngành nào ạ?
+      - dạ ad cho e hỏi [khoa](department) [kinh tế](name_department) có những ngành nào?
+      - cho e hỏi [khoa](department) [kinh tế](name_department) có ngành nào?
+      - [khoa](department) [kinh tế](name_department) có ngành nào?
+      - cho e hỏi [khoa](department) [kinh tế](name_department) có những ngành nào?
+      - danh sách các ngành của [khoa](department) [kinh tế](name_department)
+      - cho e xin danh sách các ngành [khoa](department) [kinh tế](name_department)?
+      - cho e hỏi [khoa](department) [sư phạm kỹ thuật](name_department) gồm các ngành nào?
+      - dạ cho e hỏi [khoa](department) [sư phạm kỹ thuật](name_department) có những ngành nào ạ?
+      - dạ ad cho e hỏi [khoa](department) [sư phạm kỹ thuật](name_department) có những ngành nào?
+      - cho e hỏi [khoa](department) [sư phạm kỹ thuật](name_department) có ngành nào?
+      - [khoa](department) [sư phạm kỹ thuật](name_department) có ngành nào?
+      - cho e hỏi [khoa](department) [sư phạm kỹ thuật](name_department) có những ngành nào?
+      - danh sách các ngành của [khoa](department) [sư phạm kỹ thuật](name_department)
+      - cho e xin danh sách các ngành [khoa](department) [sư phạm kỹ thuật](name_department)?
+      - cho e hỏi [khoa](department) [cơ khí động lực](name_department) gồm các ngành nào?
+      - dạ cho e hỏi [khoa](department) [cơ khí động lực](name_department) có những ngành nào ạ?
+      - dạ ad cho e hỏi [khoa](department) [cơ khí động lực](name_department) có những ngành nào?
+      - cho e hỏi [khoa](department) [cơ khí động lực](name_department) có ngành nào?
+      - [khoa](department) [cơ khí động lực](name_department) có ngành nào?
+      - cho e hỏi [khoa](department) [cơ khí động lực](name_department) có những ngành nào?
+      - danh sách các ngành của [khoa](department) [cơ khí động lực](name_department)
+      - cho e xin danh sách các ngành [khoa](department) [cơ khí động lực](name_department)?
+      - cho e hỏi [khoa](department) [cơ khí chế tạo](name_department) gồm các ngành nào?
+      - dạ cho e hỏi [khoa](department) [cơ khí chế tạo](name_department) có những ngành nào ạ?
+      - dạ ad cho e hỏi [khoa](department) [cơ khí chế tạo](name_department) có những ngành nào?
+      - cho e hỏi [khoa](department) [cơ khí chế tạo](name_department) có ngành nào?
+      - [khoa](department) [cơ khí chế tạo](name_department) có ngành nào?
+      - cho e hỏi [khoa](department) [cơ khí chế tạo](name_department) có những ngành nào?
+      - danh sách các ngành của [khoa](department) [cơ khí chế tạo](name_department)
+      - cho e xin danh sách các ngành [khoa](department) [cơ khí chế tạo](name_department)?
   - intent: ask_exist
     examples: |
       - cho e hỏi trường có ngành [công nghệ kỹ thuật ô tô](name_major) không ạ?
@@ -96,6 +144,10 @@ nlu:
       - e muốn hỏi trường có ngành [quản trị nhân lực](name_major) ko ạ?
       - trường có ngành  [công nghệ kỹ thuật điện tử - viễn thông](name_major) ko ạ?
       - cho e hỏi trường có ngành [sư phạm công nghệ](name_major) ko ạ?
+      - trường có ngành [sư phạm công nghệ](name_major) ko ạ?
+      - thầy cô cho e hỏi trường có ngành [sư phạm công nghệ](name_major) ko??
+      - dạ ad cho e hỏi trường có ngành [sư phạm công nghệ](name_major) ko ạ?
+      - ad cho e hỏi trường có ngành [sư phạm công nghệ](name_major) ko?
       - dạ cho e hỏi trường có ngành [quản trị kinh doanh](name_major) k ạ?
       - trường có ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) ko?
       - dạ thầy cô cho e hỏi trường có ngành [công nghệ chế tạo máy](name_major) ko?
@@ -112,6 +164,7 @@ nlu:
       - cho e hỏi ngành [kỹ thuật ô tô](name_major) có được [xét học bạ](name_column) không?
       - ngành [kỹ thuật máy tính](name_major) có được [xét học bạ](name_column) không ạ?
       - dạ cho e hỏi ngành [quản trị kinh doanh](name_major) có được [xét học bạ](name_column) không?
+      - dạ ad cho e hỏi ngành [sư phạm công nghệ](name_major) có được [xét học bạ](name_column) không?
       - ad cho e hỏi ngành [công nghệ chế tạo máy](name_major) có được [xét học bạ](name_column) không?
       - dạ ad cho e hỏi ngành [kỹ thuật điện tử - viễn thông](name_major) có [xét học bạ](name_column) k?
       - ngành này có được [xét học bạ](name_column) không ạ?
@@ -135,6 +188,8 @@ nlu:
       - [học phí](name_column) ngành [công nghệ kỹ thuật cơ khí](name_columns) bao nhiêu ạ?
       - cho e hỏi [học phí](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
       - dạ cho e hỏi [học phí](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - dạ cho e hỏi [học phí](name_columns) của ngành [sư phạm công nghệ](name_major)
+      - ngành [sư phạm công nghệ](name_major) [học phí](name_column) bao nhiêu ạ?
       - ngành [kỹ thuật điện tử viễn thông] có [học phí](name_column) bao nhiêu ạ?
       - dạ cho e hỏi ngành [công nghệ thông tin](name_major) có [học phí](name_column) bao nhiêu ạ?
       - dạ cho e hỏi ngành [chế tạo máy](name_major) có [học phí](name_column) bao nhiêu ạ?
@@ -155,6 +210,9 @@ nlu:
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) thi [khối](name_column) gì?
       - dạ cho e hỏi ngành [kỹ thuật điện, điện tử](name_major) thi [khối thi](name_column) gì?
       - dạ ngành [điều khiển và tự động hóa](name_major) thi [khối](name_column) nào?
+      - ngành này thi [khối](name_column) gì ạ??
+      - cho e hỏi ngành này thi [khối](name_column) gì ạ?
+      - dạ cho e hỏi ngành này thi [khối](name_column) gì?
       - cho e hỏi [điểm năm 2021](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
       - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [điểm năm 2021](name_column) của ngành bao nhiêu?
       - dạ ad cho e hỏi [điểm năm 2021](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
@@ -168,3 +226,28 @@ nlu:
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [điểm năm 2020](name_column) bao nhiêu ạ?
       - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [điểm năm 2020](name_column) mấy ạ?
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [điểm năm 2020](name_column) mấy ạ?
+
+  - intent: ask_file
+    examples: |
+      - [Hồ sơ xét tuyển](name_column) gồm những gì ạ?
+      - cho e hỏi [Hồ sơ xét tuyển](name_column) gồm những gì?
+      - ad cho e hỏi [Hồ sơ xét tuyển](name_column) gồm những gì?
+      - ad cho e hỏi cách làm [Hồ sơ xét tuyển](name_column)?
+      - thầy cô cho e hỏi [Hồ sơ xét tuyển](name_column) gồm cái gì?
+      - thầy cô cho e hỏi cách làm [Hồ sơ xét tuyển](name_column)
+      - dạ cho e hỏi cách làm [Hồ sơ xét tuyển](name_column)
+      - dạ ad cho e hỏi nộp [Hồ sơ xét tuyển](name_column) như thế nào ạ?
+      - cho e hỏi nộp [Hồ sơ xét tuyển](name_column) ở đâu ạ?
+      - cho e hỏi nộp [Hồ sơ xét tuyển](name_column) như thế nào ạ?
+      - ad cho e hỏi nộp [Hồ sơ xét tuyển](name_column) như thế nào ạ?
+      - [Hồ sơ xét tuyển](name_column) gồm những gì ạ?
+      - cho e hỏi [Hồ sơ](name_column) gồm những gì?
+      - ad cho e hỏi [Hồ sơ](name_column) gồm những gì?
+      - ad cho e hỏi cách làm [hồ sơ](name_column)?
+      - thầy cô cho e hỏi [hồ sơ](name_column) gồm cái gì?
+      - thầy cô cho e hỏi cách làm [hồ sơ](name_column)
+      - dạ cho e hỏi cách làm [hồ sơ](name_column)
+      - dạ ad cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
+      - cho e hỏi nộp [hồ sơ](name_column) ở đâu ạ?
+      - cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
+      - ad cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
