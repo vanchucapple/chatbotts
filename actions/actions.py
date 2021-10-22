@@ -9,7 +9,7 @@ import pandas as pd
 df = pd.read_excel("Tuyensinh.xlsx")
 
 
-list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ xét tuyển"]
+list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ xét tuyển", "Thời gian đào tạo", "Chương trình đào tạo", "Ra trường làm việc gì"]
 
 def get_matching_entites(entities,list_name,threshold):
 
@@ -31,6 +31,36 @@ def get_key(my_dict,val):
             return key
 
 
+class ActionContacts(Action):
+
+    def name(self) -> Text:
+        return "action_contacts"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        button = {
+            "type": "postback",
+            "title": "Tư vấn nhanh ở đây",
+            "payload": "/quick_consultation"
+        }
+        button1 = {
+            "type": "postback",
+            "title": "Gọi điện tư vấn trực tiếp",
+            "payload": "/hotline"
+        }
+
+        button2 = {
+            "type": "web_url",
+            "url": "http://tuyensinh.vuted.edu.vn/",
+            "title": "Truy cập vào website"
+        }
+
+        ret_text = "Bạn vui lòng chọn một trong các phương thức tư vấn sau: "
+        dispatcher.utter_message(text=ret_text, buttons=[button, button1, button2])
+
+        return []
+    
 class ActionSearchListDepartmentMajor(Action):
 
 
@@ -102,19 +132,19 @@ class ActionSearchExits(Action):
         print("name_major: ",name_major)
         print("name_column: ",name_column)
         list_major = df['Ngành']
-        result_entites = get_matching_entites(name_major,list_major,80)
+        result_entites = get_matching_entites(name_major,list_major,65)
+        result_name_column = get_matching_entites(name_column,list_name_col,65)
         if name_column != None:
+            
             if result_entites == []:
-                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
-                dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
+                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major} bạn ạ. Thông tin đến bạn!")
             else :
-                if df.loc[df['Ngành']== result_entites]['Xét tuyển theo học bạ'].values[0] != []:
-                    result_query = str(df.loc[df['Ngành']== result_entites]['Xét tuyển theo học bạ'].values[0])
-                    dispatcher.utter_message(text=f"Ngành {name_major} có xét" f"tuyển theo học bạ {result_query}"
-                    f"Bạn muốn hỏi gì thêm về Ngành này không?")
+                if df.loc[df['Ngành']== result_entites][result_name_column].values[0] != []:
+                    dispatcher.utter_message(text=f"Ngành {name_major} có " f" nhé bạn."
+                    f" ")
                     
                 else: 
-                    dispatcher.utter_message(text=f"Ngành {name_major} không xét tuyển theo học bạn. Thông tin đến bạn!")
+                    dispatcher.utter_message(text=f"Ngành {name_major} không không nhé bạn. Thông tin đến bạn! Bạn muốn hỏi gì thêm về Ngành này không?")
         elif (name_department == None) & (name_column == None) & (name_major != None):
             print("result_entites: ",result_entites)
             if result_entites == []:
@@ -170,7 +200,7 @@ class ActionSearchFile(Action):
 
         name_column = tracker.get_slot("name_column")
         result_entites_column = get_matching_entites(name_column,list_name_col,30)
-        print("result_entites_column", result_entites_column)
+        print("result_entites_column:__________", result_entites_column)
         message = str(df[result_entites_column][0])
         dispatcher.utter_message(text=f"Gửi bạn thông tin {result_entites_column} : {message}")
         return []

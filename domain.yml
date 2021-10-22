@@ -62,20 +62,13 @@ actions:
   - action_search_exits
   - action_search_info_major
   - action_search_file
+  - action_contacts
 responses:
   utter_greet:
   - text: "chào mừng bạn đến với fanpage về tuyển sinh trường đại học A có địa chỉ tại B, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang web tuyển sinh"
-    buttons:
-      - title: "Tư vấn nhanh"
-        payload: "/quick_consultation"
-      - title: "Liên hệ hotline"
-        payload: "/hotline"
-      - title: "Truy cập website"
-        payload: "website"
   utter_hotline:
   - text: "Bạn nhập họ và tên, SĐT sau đó sẽ có người gọi tư vấn trực tiếp đến bạn hoặc bạn có thể chủ động gọi vào hotline sau để gặp người tư vấn: 0926268900"
-  utter_web:
-  - text: "Bạn có thể xem tất cả thông tin ở địa chỉ sau: http://tuyensinh.vuted.edu.vn/ "
+
   utter_quick_consultation:
   - text: "Gợi ý các vấn đề có thể bạn quan tâm :\n
   - Thông tin mỗi ngành\n

@@ -175,6 +175,33 @@ nlu:
       - ngành này có được [xét học bạ](name_column) ko?
       - dạ ad cho e hỏi ngành này có được [xét học bạ](name_column) không?
       - dạ ad cho e hỏi ngành này có được [xét học bạ](name_column) k?
+      - cho e hỏi ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) có được [xét tuyển online](name_column) không?
+      - cho e hỏi ngành [điều khiển và tự động hóa](name_major) có được [xét tuyển online](name_column) không?
+      - cho e hỏi ngành [kỹ thuật điện tử viễn thông](name_major) có được [xét tuyển online](name_column) không?
+      - cho e hỏi ngành [kỹ thuật ô tô](name_major) có được [xét tuyển online](name_column) không?
+      - ngành [kỹ thuật máy tính](name_major) có được [xét tuyển online](name_column) không ạ?
+      - dạ cho e hỏi ngành [quản trị kinh doanh](name_major) có được [xét tuyển online](name_column) không?
+      - dạ ad cho e hỏi ngành [sư phạm công nghệ](name_major) có được [xét tuyển online](name_column) không?
+      - ad cho e hỏi ngành [công nghệ chế tạo máy](name_major) có được [xét tuyển online](name_column) không?
+      - dạ ad cho e hỏi ngành [kỹ thuật điện tử - viễn thông](name_major) có [xét tuyển online](name_column) k?
+      - cho e hỏi ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) có được [nộp hồ sơ online](name_column) không?
+      - cho e hỏi ngành [điều khiển và tự động hóa](name_major) có được [nộp hồ sơ online](name_column) không?
+      - cho e hỏi ngành [kỹ thuật điện tử viễn thông](name_major) có được [nộp hồ sơ online](name_column) không?
+      - cho e hỏi ngành [kỹ thuật ô tô](name_major) có được [nộp hồ sơ online](name_column) không?
+      - ngành [kỹ thuật máy tính](name_major) có được [nộp hồ sơ online](name_column) không ạ?
+      - dạ cho e hỏi ngành [quản trị kinh doanh](name_major) có được [nộp hồ sơ online](name_column) không?
+      - dạ ad cho e hỏi ngành [sư phạm công nghệ](name_major) có được [nộp hồ sơ online](name_column) không?
+      - ad cho e hỏi ngành [công nghệ chế tạo máy](name_major) có được [nộp hồ sơ online](name_column) không?
+      - dạ ad cho e hỏi ngành [kỹ thuật điện tử - viễn thông](name_major) có [nộp hồ sơ online](name_column) k?
+      - cho e hỏi ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) có được [đăng ký online](name_column) không?
+      - cho e hỏi ngành [điều khiển và tự động hóa](name_major) có được [đăng ký online](name_column) không?
+      - cho e hỏi ngành [kỹ thuật điện tử viễn thông](name_major) có được [đăng ký online](name_column) không?
+      - cho e hỏi ngành [kỹ thuật ô tô](name_major) có được [đăng ký online](name_column) không?
+      - ngành [kỹ thuật máy tính](name_major) có được [đăng ký online](name_column) không ạ?
+      - dạ cho e hỏi ngành [quản trị kinh doanh](name_major) có được [đăng ký online](name_column) không?
+      - dạ ad cho e hỏi ngành [sư phạm công nghệ](name_major) có được [đăng ký online](name_column) không?
+      - ad cho e hỏi ngành [công nghệ chế tạo máy](name_major) có được [đăng ký online](name_column) không?
+      - dạ ad cho e hỏi ngành [kỹ thuật điện tử - viễn thông](name_major) có [đăng ký online](name_column) k?
   - intent: ask_search_info_major
     examples: |
       - cho e hỏi [học phí](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
@@ -213,12 +240,12 @@ nlu:
       - ngành này thi [khối](name_column) gì ạ??
       - cho e hỏi ngành này thi [khối](name_column) gì ạ?
       - dạ cho e hỏi ngành này thi [khối](name_column) gì?
-      - cho e hỏi [điểm năm 2021](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
-      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [điểm năm 2021](name_column) của ngành bao nhiêu?
-      - dạ ad cho e hỏi [điểm năm 2021](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
-      - dạ thầy cô cho e hỏi [điểm năm 2021](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
-      - cho e hỏi [điểm năm 2021](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
-      - dạ cho e hỏi [điểm năm 2021](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - cho e hỏi [chương trình đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
+      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [chương trình học](name_column) của ngành bao nhiêu?
+      - dạ ad cho e hỏi [chương trình học](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
+      - dạ thầy cô cho e hỏi [chương trình học](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
+      - cho e hỏi [chương trình học](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
+      - dạ cho e hỏi [chương trình học](name_column) của ngành [sư phạm công nghệ](name_major)?
       - ngành [kỹ thuật điện tử viễn thông] có [điểm năm 2020](name_column) bao nhiêu ạ?
       - dạ cho e hỏi ngành [chế tạo máy](name_major) [điểm năm 2020](name_column) như nào ạ?
       - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [điểm năm 2020](name_column) bao nhiêu?
@@ -226,7 +253,58 @@ nlu:
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [điểm năm 2020](name_column) bao nhiêu ạ?
       - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [điểm năm 2020](name_column) mấy ạ?
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [điểm năm 2020](name_column) mấy ạ?
-
+      - cho e hỏi [thời gian đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
+      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [thời gian đào tạo](name_column) của ngành bao nhiêu?
+      - dạ ad cho e hỏi [thời gian đào tạo](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
+      - dạ thầy cô cho e hỏi [thời gian đào tạo](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
+      - cho e hỏi [thời gian đào tạo](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
+      - dạ cho e hỏi [thời gian đào tạo](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - ngành [kỹ thuật máy tính] có [thời gian đào tạo](name_column) bao nhiêu ạ?
+      - dạ cho e hỏi ngành [quản trị kinh doanh](name_major) [thời gian học](name_column) như nào ạ?
+      - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [thời gian học](name_column) bao nhiêu?
+      - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [thời gian học](name_column) như nào ạ?
+      - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [thời gian học](name_column) bao nhiêu ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) [thời gian đào tạo](name_column) mấy ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [thời gian đào tạo](name_column) mấy ạ?
+      - cho e hỏi [ra trường làm việc gì](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
+      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [ra trường làm việc gì](name_column) của ngành bao nhiêu?
+      - dạ ad cho e hỏi [ra trường làm việc gì](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
+      - dạ thầy cô cho e hỏi [ra trường làm việc gì](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
+      - cho e hỏi [ra trường làm việc gì](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
+      - dạ cho e hỏi [ra trường làm việc gì](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - ngành [kỹ thuật điện tử viễn thông] có [ra trường làm việc gì](name_column) bao nhiêu ạ?
+      - dạ cho e hỏi ngành [chế tạo máy](name_major) [ra trường làm việc gì](name_column) như nào ạ?
+      - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [ra trường làm việc gì](name_column) bao nhiêu?
+      - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [ra trường làm việc gì](name_column) như nào ạ?
+      - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [ra trường làm việc gì](name_column) bao nhiêu ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [ra trường làm việc gì](name_column) mấy ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [ra trường làm việc gì](name_column) mấy ạ?
+      - cho e hỏi [thời gian đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
+      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [thời gian đào tạo](name_column) của ngành bao nhiêu?
+      - dạ ad cho e hỏi [thời gian đào tạo](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
+      - dạ thầy cô cho e hỏi [thời gian đào tạo](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
+      - cho e hỏi [thời gian đào tạo](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
+      - dạ cho e hỏi [thời gian đào tạo](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - ngành [kỹ thuật máy tính] có [thời gian đào tạo](name_column) bao nhiêu ạ?
+      - dạ cho e hỏi ngành [quản trị kinh doanh](name_major) [thời gian học](name_column) như nào ạ?
+      - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [thời gian học](name_column) bao nhiêu?
+      - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [thời gian học](name_column) như nào ạ?
+      - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [thời gian học](name_column) bao nhiêu ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) [thời gian đào tạo](name_column) mấy ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [thời gian đào tạo](name_column) mấy ạ?
+      - cho e hỏi [chương trình đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
+      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [chương trình đào tạo](name_column) của ngành bao nhiêu?
+      - dạ ad cho e hỏi [chương trình đào tạo](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
+      - dạ thầy cô cho e hỏi [chương trình đào tạo](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
+      - cho e hỏi [chương trình đào tạo](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
+      - dạ cho e hỏi [chương trình đào tạo](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - ngành [kỹ thuật điện tử viễn thông] có [chương trình đào tạo](name_column) bao nhiêu ạ?
+      - dạ cho e hỏi ngành [chế tạo máy](name_major) [chương trình đào tạo](name_column) như nào ạ?
+      - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [chương trình đào tạo](name_column) bao nhiêu?
+      - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [chương trình đào tạo](name_column) như nào ạ?
+      - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [chương trình đào tạo](name_column) bao nhiêu ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [chương trình đào tạo](name_column) mấy ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [chương trình đào tạo](name_column) mấy ạ?
   - intent: ask_file
     examples: |
       - [Hồ sơ xét tuyển](name_column) gồm những gì ạ?
@@ -251,3 +329,6 @@ nlu:
       - cho e hỏi nộp [hồ sơ](name_column) ở đâu ạ?
       - cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
       - ad cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
+  - intent: ask_file_1
+    examples: |
+      - 

@@ -10,15 +10,16 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
+  - action: action_contacts
 - rule: Choice contacts hotline
   steps:
   - intent: hotline
   - action: utter_hotline
-- rule: Choice web
-  steps:
-  - intent: website
-  - action: utter_web
-- rule: Choice tư vấn nhanh
+# - rule: Choice web
+#   steps:
+#   - intent: website
+#   - action: action_contacts
+- rule: Choice quick consultation
   steps:
   - intent: quick_consultation
   - action: utter_quick_consultation

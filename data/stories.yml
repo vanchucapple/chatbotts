@@ -2,30 +2,16 @@ version: "2.0"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
 - story: Choice hotline
   steps:
   - intent: greet
   - action: utter_greet
+  - action: action_contacts
   - intent: hotline
   - action: utter_hotline
   - intent: info_contacts
   - action: action_get_info
-- story: Choice web
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: website
-  - action: utter_web
-- story: Choice quick consultation
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: quick_consultation
-  - action: utter_quick_consultation
+
 - story: ask list department_major
   steps:
   - intent: ask_list_department_major
