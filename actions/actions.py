@@ -9,7 +9,7 @@ import pandas as pd
 df = pd.read_excel("Tuyensinh.xlsx")
 
 
-list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyển học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ xét tuyển", "Thời gian đào tạo", "Chương trình đào tạo", "Ra trường làm việc gì", "Xét tuyển online"]
+list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyên theo học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ ", "Thời gian đào tạo", "Chương trình đào tạo", "Ra trường làm việc gì", "Xét tuyển online"]
 
 def get_matching_entites(entities,list_name,threshold):
 
@@ -102,8 +102,6 @@ class ActionGetInfo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        print("__________________________action_get_info_______________________")
-        
         phone_info = tracker.get_slot("phone_info")
         name_info = tracker.get_slot("name_info")
         print("name_info: ",name_info)
@@ -137,8 +135,10 @@ class ActionSearchExits(Action):
         print("name_major: ",name_major)
         print("name_column: ",name_column)
         list_major = df['Ngành']
-        result_entites = get_matching_entites(name_major,list_major,65)
-        result_name_column = get_matching_entites(name_column,list_name_col,65)
+        
+        result_entites = get_matching_entites(name_major,list_major,60)
+        result_name_column = get_matching_entites(name_column,list_name_col,30)
+        
         if name_column != None:
             
             if name_major == None:
@@ -190,8 +190,8 @@ class ActionSearchInfoMajor(Action):
         print("name_major: ",name_major)
         print("name_column: ",name_column)
         list_major = df['Ngành']
-        result_entites_major = get_matching_entites(name_major,list_major,80)
-        result_entites_column = get_matching_entites(name_column,list_name_col,50)
+        result_entites_major = get_matching_entites(name_major,list_major,70)
+        result_entites_column = get_matching_entites(name_column,list_name_col,35)
         print("result_entites_major", result_entites_major)
         print("result_entites_column", result_entites_column)
         if name_major == None:

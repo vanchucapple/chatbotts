@@ -6,6 +6,16 @@ intents:
   - hotline
   - website
   - quick_consultation
+  - ask_lienthong
+  - ask_vb2
+  - ask_intern
+  - ask_discount
+  - ask_KTX_4
+  - ask_KTX_3
+  - ask_KTX_2
+  - ask_KTX_1
+  - ask_andress
+  - ask_file_1
   - info_contacts:
       use_entities:
         - name_info
@@ -65,7 +75,7 @@ actions:
   - action_contacts
 responses:
   utter_greet:
-  - text: "chào mừng bạn đến với fanpage về tuyển sinh trường đại học A có địa chỉ tại B, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang web tuyển sinh"
+  - text: "Chào mừng bạn đến với fanpage tuyển sinh Trường Đại học Sư Phạm Kĩ Thuật Vinh có địa chỉ tại Số 117 đường Nguyễn Viết Xuân-TP Vinh-Tỉnh Nghệ An, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang Web tuyển sinh"
   utter_hotline:
   - text: "Bạn nhập họ và tên, SĐT sau đó sẽ có người gọi tư vấn trực tiếp đến bạn hoặc bạn có thể chủ động gọi vào hotline sau để gặp người tư vấn: 0926268900"
 
@@ -78,6 +88,39 @@ responses:
   "
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+  utter_file_1:
+  - text: "Bạn có thể nhờ người khác nộp thay được. Để xem chi tiết hồ sơ gồm những gì, bạn truy cập vào website này để biết thêm thông tin chi tiết nhé: http://tuyensinh.vuted.edu.vn/ "
+  utter_andress:
+  - text: "Địa chỉ nộp hồ sơ của trường : Ban Tuyển Sinh-Trường Đại Học Sư phạm Kỹ thuật Vinh 117-đường Nguyễn Viết Xuân-TP Vinh-tỉnh Nghệ An. Thông tin đến bạn!"
+  utter_KTX_1:
+  - text: "Ký túc xá cho phép được nấu ăn bạn nhé! Thông tin đến bạn"
+  utter_KTX_2:
+  - text: "ở kí túc xá các bạn sẽ cần đóng 300.000/5 tháng , ngoài ra chí phí điện nước sẽ tính theo quy định nhà nước."
+  utter_KTX_3:
+  - text: "Tất cả sinh viên học tập tại trường đều được ở ký túc xá.Chỉ sau khi trúng tuyển và nhập học bạn sẽ được nhận giấy đăng ký và hướng dẫn tại KTX hoặc Phòng CTHSSV."
+  utter_KTX_4:
+  - text: "Tòa nhà kí túc xá nằm trong khuôn viên trường \n
+  - Bao gồm 5 tầng , tổng 60 phòng.\n
+  - Khang trang và đầy đủ tiện nghi. \n
+  - Mỗi phòng có thể ở từ 4 đến 6 người"
+  utter_discount:
+  - text: "Gửi bạn thông tin miễn học phí:\n
+  - Người có công với cách mạng hoặc thân nhân của người có công với cách mạng.\n
+  - HSSV bị tàn tật, khuyết tật, thuộc diện hộ nghèo, cận nghèo.\n
+  - HSSV là người dân tộc thiểu số thuộc hộ nghèo, cận ngèo.\n
+  - HSSV là người dân tộc thiểu số ở vùng kinh tế đặc biệt khó khăn (KV135)."
+  utter_intern:
+  - text: "Gửi bạn thông tin thực tập của trường nhé: \n
+  1. Chương trình thực tập và làm việc trong nước \n
+  - Thực tập doanh nghiệp và thực tập tốt nghiệp trong nước: Thời gian thực tập 6 tháng tại các DN, tập đoàn lớn. Sinh viên được cung cấp chỗ ở miễn phí, hỗ trợ một phần tiền ăn, hỗ trợ thực tập từ 170.000-200.000/ngày\n
+  2. Thực tập và làm việc tại nước ngoài:\n
+  - Bạn sẽ được thực tập và làm việc tại các quốc gia như Nhật Bản, Hàn Quốc, Đài Loan, Ba Lan, Úc,… theo diện thực tập hưởng lương, thực tập kĩ năng, kĩ sư, kĩ sư (VISA F7), xuất khẩu lao động….Thông tin cụ thể từng chương trình sẽ thay đổi theo từng thời gian cụ thể . Bạn có thể liên hệ trực tiếp đến ban tuyển sinh để nhận được thông tin chính xác theo từng thời điểm."
+  utter_vb2:
+  - text: "Chương trình về tuyển sinh và đào tạo hệ văn bằng 2: Bạn vui lòng liên hệ Hotline 02383.833.002"
+  utter_lienthong:
+  - text: "Trường có hệ tuyển sinh liên thông chính quy từ Trung cấp lên Đại học và Cao Đẳng lên Đại học. Thời gian đào tạo tối thiểu 1.5 năm "
+  utter_please_rephrase:
+  - text: "Bạn có thể nói rõ hơn được không?"
 
 session_config:
   session_expiration_time: 60

@@ -54,6 +54,7 @@ nlu:
       - [Nguyễn Tiến Dũng](name_info)
       - [Trương Tiến Dũng](name_info)
       - em tên là [Nguyễn Tiến Dũng](name_info)
+      - họ tên e là [Nguyễn Văn Chức](name_info)
       - họ tên e là [Nguyễn Tiến Dũng](name_info)
       - SĐT [09249123912](phone_info)
       - [09249124234](phone_info)
@@ -228,6 +229,12 @@ nlu:
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [học phí](name_column) ntn ạ?
       - dạ cho e hỏi ngành [kỹ thuật điện, điện tử](name_major) có [học phí](name_column) như thế nào ạ?
       - dạ ngành [điều khiển và tự động hóa](name_major) có [học phí](name_column) như thế nào?
+      - cho e hỏi [học phí](name_column) của ngành này bao nhiêu ạ?
+      - [học phí](name_column) của ngành này bao nhiêu một kì ạ?
+      - [học phí](name_column) bao nhiêu 1 kì ạ?
+      - [học phí](name_column) bao nhiêu vậy ạ?
+      - cho e hỏi [học phí](name_column) của ngày này ntn ạ?
+      - dạ cho e hỏi [học phí](name_column) của ngành này như nào ạ?
       - ngành [kỹ thuật điện tử viễn thông] phải thi [khối](name_column) nào ạ?
       - dạ cho e hỏi ngành [chế tạo máy](name_major) phải thi [khối](name_column) nào ạ?
       - dạ cho e hỏi ngành [quản trị nhân lực](name_major) thi [khối](name_column) nào?
@@ -253,9 +260,6 @@ nlu:
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [điểm năm 2020](name_column) bao nhiêu ạ?
       - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [điểm năm 2020](name_column) mấy ạ?
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [điểm năm 2020](name_column) mấy ạ?
-      - dạ cho e hỏi [điểm năm trước](name_column) của ngành này bao nhiêu ạ? 
-      - cho e hỏi [điểm năm trước](name_column) của ngành này bao nhiêu ạ?
-      - [điểm năm trước](name_column) của ngành này bao nhiêu ạ?
       - cho e hỏi [thời gian đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
       - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [thời gian đào tạo](name_column) của ngành bao nhiêu?
       - dạ ad cho e hỏi [thời gian đào tạo](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
@@ -306,8 +310,8 @@ nlu:
       - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [chương trình đào tạo](name_column) bao nhiêu?
       - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [chương trình đào tạo](name_column) như nào ạ?
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [chương trình đào tạo](name_column) bao nhiêu ạ?
-      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [chương trình đào tạo](name_column)  ạ?
-      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [chương trình đào tạo](name_column) như thế nào ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [chương trình đào tạo](name_column) mấy ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [chương trình đào tạo](name_column) mấy ạ?
   - intent: ask_file
     examples: |
       - [Hồ sơ xét tuyển](name_column) gồm những gì ạ?
@@ -321,14 +325,126 @@ nlu:
       - cho e hỏi nộp [Hồ sơ xét tuyển](name_column) ở đâu ạ?
       - cho e hỏi nộp [Hồ sơ xét tuyển](name_column) như thế nào ạ?
       - ad cho e hỏi nộp [Hồ sơ xét tuyển](name_column) như thế nào ạ?
-      - [Hồ sơ xét tuyển](name_column) gồm những gì ạ?
-      - cho e hỏi [Hồ sơ](name_column) gồm những gì?
-      - ad cho e hỏi [Hồ sơ](name_column) gồm những gì?
-      - ad cho e hỏi cách làm [hồ sơ](name_column)?
-      - thầy cô cho e hỏi [hồ sơ](name_column) gồm cái gì?
-      - thầy cô cho e hỏi cách làm [hồ sơ](name_column)
-      - dạ cho e hỏi cách làm [hồ sơ](name_column)
-      - dạ ad cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
-      - cho e hỏi nộp [hồ sơ](name_column) ở đâu ạ?
-      - cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
-      - ad cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
+      - dạ ad cho e hỏi nộp [Hồ sơ xét tuyển](name_column) cho ai ạ?
+      - cho e hỏi nộp [Hồ sơ xét tuyển](name_column) cho ai ở đâu?
+      - cho e hỏi nộp [Hồ sơ xét tuyển](name_column) gặp ai ạ?
+      - ad cho e hỏi gặp ai để nộp [Hồ sơ xét tuyển](name_column) ạ?
+      - cho e hỏi phải gặp ai để nộp [Hồ sơ xét tuyển](name_column) ạ?
+      - dạ ad cho e hỏi hình thức nộp [Hồ sơ xét tuyển](name_column) như thế nào ạ?
+      - cho e hỏi nộp [Hồ sơ](name_column) ở đâu ạ?
+      - cho e hỏi nộp [Hồ sơ](name_column) như thế nào ạ?
+      - ad cho e hỏi nộp [Hồ sơ](name_column) như thế nào ạ?
+      - dạ ad cho e hỏi nộp [Hồ sơ](name_column) cho ai ạ?
+      - nộp [Hồ sơ](name_column) cho ai ở đâu?
+      - nộp [Hồ sơ](name_column) gặp ai ạ?
+      - gặp ai để nộp [Hồ sơ](name_column) ạ?
+      - cho e hỏi phải gặp ai để nộp [Hồ sơ](name_column) ạ?
+  - intent: ask_file_1
+    examples: |
+      - em in hồ sơ cho bạn được không?
+      - giờ bạn em ở xa, em làm hồ sơ nộp hộ bạn được không?
+      - em nộp hồ sơ hộ bạn được ko?
+      - e nộp hồ sơ thay bạn được ko?
+      - Em ở xa có thể nhờ người khác nộp hồ sơ xét tuyển được không
+      - Nhờ bạn nộp hồ sơ xét tuyển được không
+      - Nhờ bố mẹ nộp hồ sợ giúp được không
+      - Bạn giúp em nộp hồ sơ được không
+      - nhờ người khác nộp thay có được ko?
+      - nhờ người khác nộp hồ sơ thay có được không?
+      - em không đi nộp [Hồ sơ](name_column) được, có cách nào để nộp hồ sơ không
+  - intent: ask_andress
+    examples: |
+      - cho e hỏi địa chỉ của trường?
+      - trường địa chỉ ở đâu ạ?
+      - cho e xin địa chỉ của trường
+      - ad cho e xin địa chỉ của trường
+      - dạ cho e hỏi trường ở đâu ạ?
+      - dạ trường ở đâu ạ?
+      - dạ cho e hỏi địa chỉ trường ở đâu ạ?
+      - địa chỉ trường ở đâu?
+      - cho e hỏi trường ở đâu ạ?
+      - thầy cô cho e hỏi trường ở đâu ạ?
+      - ad cho e hỏi trường ở đâu ạ?
+  - intent: ask_KTX_1
+    examples: |
+      - ký túc xá có được nấu ăn không
+      - nấu ăn
+      - ký túc xá có cho nấu ăn không
+      - được nấu ăn trong ký túc xá không 
+      - cho em hỏi có được nấu ăn ở ký túc xá không
+      - ký túc xá cho phép nấu ăn không
+      - cho e hỏi ktx có được nấu ăn ko?
+      - cho e hỏi có được nấu ăn trong ktx ko?
+      - nấu ăn trong ktx được ko?
+      - được nấu ăn trong ktx ko?
+  - intent: ask_KTX_2
+    examples: |
+      - ở kí túc xá phải đóng bao nhiêu tiền
+      - kí túc xá 1 tháng bao nhiêu tiền ạ?
+      - giá phòng kí túc xá ntn ạ?
+      - giá 1 phòng bao nhiêu ạ?
+      - 1 phòng ktx 1 tháng bao nhiêu ạ?
+      - 1 tháng bao nhiêu tiền ạ?
+  - intent: ask_KTX_3
+    examples: |
+      - em muốn ở ký túc xá được không
+      - làm thế nào để em có thể ở ký túc xá
+      - nhà em ở xa em muốn xin ở ký túc xá có được không
+      - em muốn đăng ký ở ký túc xá ngay bây giờ được không
+      - em muốn đăng ký ở ký túc xá
+      - đăng ký ở ký túc xá cho em với
+      - làm sao để đăng ký ở ký túc xá ạ?
+      - làm sao để đăng ký ở ktx ạ?
+      - muốn ở ký túc xá thì phải làm sao ạ?
+      - muốn ở ktx thì phải làm gì ạ?
+  - intent: ask_KTX_4
+    examples: |
+      - cho e xin thông tin ký túc xá ạ
+      - cho e xem phòng ktx được ko ạ?
+      - cho e xem ảnh ktx được ko ạ?
+      - ad cho e xin ảnh ktx
+      - cho em xin ảnh ký túc xá
+      - ad cho e xin thông tin ktx
+      - thông tin ký túc xá
+      - thông tin ktx
+      - ký túc xá có sân chơi thể thao không
+      - ký túc xá có ở trong trường không
+  - intent: ask_discount
+    examples: |
+      - em con thương binh, liệt sĩ có được giảm tiền không
+      - nhà em thuộc hộ cận ngèo, ngèo có được miễn, giảm tiền không
+      - nhà em thuộc vùng 135 có được giảm, miễn tiền không
+      - miễn giảm tiền ở ký túc xá
+      - Em có được miễn giảm học phí không
+      - Thuộc diện nào mới được miễn giảm học phí
+      - Bố em là liệt sỹ có được miễn giảm học phí không
+      - Bố em là thương binh có được miễn giảm học phí không
+      - Em bị khuyết tật từ bé có được miễn giảm học phí không
+      - Em bị tàn tật có được miễn giảm học phí không
+      - Em dân tộc Mường, hộ nghèo có được miễn giảm học phí không
+      - Em thuộc diện 135 có được miễn giảm học phí không
+  - intent: ask_intern
+    examples: |
+      - trường mình có được đi thực tập nước ngoài không
+      - có được đi thực tập không 
+      - em muốn hỏi về chương trình thực tập trường mình 
+      - chương trình thực tập thì như thế nào ạ
+      - Em muốn biết thêm chương trình thực tập và xuât khẩu lao động nhà trường
+      - thực tập nước ngoài thì như thế nào ạ
+      - thực tập thì sao ạ
+      - em muốn hỏi về chương trình thực tập
+  - intent: ask_vb2
+    examples: |
+      - trường mình có đào tạo văn bằng 2 không
+      - cho hỏi có tuyển sinh văn bằng 2 không 
+      - chương trình văn bằng 2 thì như thế nào  
+      - tôi muốn hỏi về văn bằng 2
+      - văn bằng 2
+      - đào tạo văn bằng 2
+  - intent: ask_lienthong
+    examples: |
+      - trường mình có đào tạo tuyển sinh liên thông không
+      - em muốn liên thông có được không 
+      - liên thông từ cao đẳng lên đại học có được không  
+      - liên thông từ trung cấp lên đại học có được không 
+      - có tuyển sinh liên thông không 

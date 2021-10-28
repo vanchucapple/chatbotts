@@ -1,5 +1,5 @@
 language: vi
-
+#pip3 install rasa==2.8.2
 pipeline:
 #- name: VietnameseTokenizer
 - name: HFTransformersNLP
