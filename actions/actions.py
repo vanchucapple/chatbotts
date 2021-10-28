@@ -9,7 +9,7 @@ import pandas as pd
 df = pd.read_excel("Tuyensinh.xlsx")
 
 
-list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyển theo học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ xét tuyển", "Thời gian đào tạo", "Chương trình đào tạo", "Ra trường làm việc gì"]
+list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyển học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ xét tuyển", "Thời gian đào tạo", "Chương trình đào tạo", "Ra trường làm việc gì", "Xét tuyển online"]
 
 def get_matching_entites(entities,list_name,threshold):
 
@@ -102,6 +102,8 @@ class ActionGetInfo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        print("__________________________action_get_info_______________________")
+        
         phone_info = tracker.get_slot("phone_info")
         name_info = tracker.get_slot("name_info")
         print("name_info: ",name_info)
@@ -125,6 +127,9 @@ class ActionSearchExits(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        print("__________________________action_search_exits_______________________")
+        
+        
         name_department = tracker.get_slot("name_department")
         name_major = tracker.get_slot("name_major")
         name_column = tracker.get_slot("name_column")
@@ -136,16 +141,23 @@ class ActionSearchExits(Action):
         result_name_column = get_matching_entites(name_column,list_name_col,65)
         if name_column != None:
             
-            if result_entites == []:
-                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major} bạn ạ. Thông tin đến bạn!")
+            if name_major == None:
+            
+                dispatcher.utter_message(text=f" Bạn vui lòng nói rõ bạn đang tìm thông tin gì của ngành nào giúp mình!")
             else :
-                if df.loc[df['Ngành']== result_entites][result_name_column].values[0] != []:
-                    dispatcher.utter_message(text=f"Ngành {name_major} có " f" nhé bạn."
-                    f" ")
+                
+                if result_entites == []:
+                    dispatcher.utter_message(text=f"Ngành {result_entites}  trường không đào tạo. Thông tin đến bạn!")
+                else:
                     
-                else: 
-                    dispatcher.utter_message(text=f"Ngành {name_major} không không nhé bạn. Thông tin đến bạn! Bạn muốn hỏi gì thêm về Ngành này không?")
-        elif (name_department == None) & (name_column == None) & (name_major != None):
+                    if df.loc[df['Ngành']== result_entites][result_name_column].values[0] != []:
+                        dispatcher.utter_message(text=f"Ngành {name_major} " f"trường có đào tạo và còn có thể {result_name_column}" f" nha bạn.")
+                        
+                    else: 
+                        dispatcher.utter_message(text=f"Ngành {name_major} " f"trường có đào tạo và không {result_name_column}" 
+                        f". Thông tin đến bạn")
+                        
+        elif (name_column == None) & (name_major != None):
             print("result_entites: ",result_entites)
             if result_entites == []:
                 dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
@@ -157,7 +169,7 @@ class ActionSearchExits(Action):
                 dispatcher.utter_message(text=f" Trường có đào tạo Ngành {name_major}." \
                 f"{message}" \
                 f". Bạn có thể tham khảo chi tiết tại http://tuyensinh.vuted.edu.vn/. Bạn muốn hỏi gì thêm về Ngành này không?")
-        return [AllSlotsReset()]
+        return []
     
 
 
@@ -171,6 +183,8 @@ class ActionSearchInfoMajor(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        print("__________________________action_search_info_major_______________________")
+        
         name_column = tracker.get_slot("name_column")
         name_major = tracker.get_slot("name_major")
         print("name_major: ",name_major)
@@ -181,11 +195,15 @@ class ActionSearchInfoMajor(Action):
         print("result_entites_major", result_entites_major)
         print("result_entites_column", result_entites_column)
         if name_major == None:
+            
             dispatcher.utter_message(text=f"Bạn vui lòng hỏi rõ hơn, bạn "
                                         f"đang tìm kiếm thông tin gì cho chuyên Ngành nào?")
         else:
-            message = str(df.loc[df['Ngành'] == result_entites_major][result_entites_column].values[0])
-            dispatcher.utter_message(text=f"Gửi bạn thông tin {result_entites_column} của {result_entites_major}: {message} . Thông tin đến bạn!")
+            if result_entites_major == []:
+                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}. Thông tin đến bạn!")
+            else:
+                message = str(df.loc[df['Ngành'] == result_entites_major][result_entites_column].values[0])
+                dispatcher.utter_message(text=f"Gửi bạn thông tin {result_entites_column} của {result_entites_major}: {message} . Thông tin đến bạn!")
         return []
 
 class ActionSearchFile(Action):
@@ -197,7 +215,7 @@ class ActionSearchFile(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        print("__________________________action_search_file_______________________")
         name_column = tracker.get_slot("name_column")
         result_entites_column = get_matching_entites(name_column,list_name_col,30)
         print("result_entites_column:__________", result_entites_column)

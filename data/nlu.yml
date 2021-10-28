@@ -253,6 +253,9 @@ nlu:
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [điểm năm 2020](name_column) bao nhiêu ạ?
       - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [điểm năm 2020](name_column) mấy ạ?
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [điểm năm 2020](name_column) mấy ạ?
+      - dạ cho e hỏi [điểm năm trước](name_column) của ngành này bao nhiêu ạ? 
+      - cho e hỏi [điểm năm trước](name_column) của ngành này bao nhiêu ạ?
+      - [điểm năm trước](name_column) của ngành này bao nhiêu ạ?
       - cho e hỏi [thời gian đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
       - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [thời gian đào tạo](name_column) của ngành bao nhiêu?
       - dạ ad cho e hỏi [thời gian đào tạo](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
@@ -303,8 +306,8 @@ nlu:
       - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [chương trình đào tạo](name_column) bao nhiêu?
       - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [chương trình đào tạo](name_column) như nào ạ?
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [chương trình đào tạo](name_column) bao nhiêu ạ?
-      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [chương trình đào tạo](name_column) mấy ạ?
-      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [chương trình đào tạo](name_column) mấy ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [chương trình đào tạo](name_column)  ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [chương trình đào tạo](name_column) như thế nào ạ?
   - intent: ask_file
     examples: |
       - [Hồ sơ xét tuyển](name_column) gồm những gì ạ?
@@ -329,6 +332,3 @@ nlu:
       - cho e hỏi nộp [hồ sơ](name_column) ở đâu ạ?
       - cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
       - ad cho e hỏi nộp [hồ sơ](name_column) như thế nào ạ?
-  - intent: ask_file_1
-    examples: |
-      - 
