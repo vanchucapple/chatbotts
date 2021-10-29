@@ -9,7 +9,7 @@ import pandas as pd
 df = pd.read_excel("Tuyensinh.xlsx")
 
 
-list_name_col = ["Cấp", "Khoa", "Mã ngành","Học phí", "Cách tính điểm", "Xét tuyên theo học bạ", "link", "Khối thi", "Điểm năm 2021" , "Hồ sơ ", "Thời gian đào tạo", "Chương trình đào tạo", "Ra trường làm việc gì", "Xét tuyển online"]
+list_name_col = list(df.columns)
 
 def get_matching_entites(entities,list_name,threshold):
 
@@ -90,7 +90,7 @@ class ActionSearchListDepartmentMajor(Action):
             dispatcher.utter_message(text=f"Gửi bạn danh sách các Khoa của trường : {df['Khoa'].unique()}")
         elif (department == None) & (name_department == None) & (major != None):
             dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
-        return []
+        return [AllSlotsReset()]
 
 class ActionGetInfo(Action):
 
@@ -197,7 +197,7 @@ class ActionSearchInfoMajor(Action):
         if name_major == None:
             
             dispatcher.utter_message(text=f"Bạn vui lòng hỏi rõ hơn, bạn "
-                                        f"đang tìm kiếm thông tin gì cho chuyên Ngành nào?")
+                                        f"đang tìm kiếm thông tin gì cho chuyên ngành nào?")
         else:
             if result_entites_major == []:
                 dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}. Thông tin đến bạn!")
@@ -216,9 +216,12 @@ class ActionSearchFile(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         print("__________________________action_search_file_______________________")
-        name_column = tracker.get_slot("name_column")
-        result_entites_column = get_matching_entites(name_column,list_name_col,30)
-        print("result_entites_column:__________", result_entites_column)
-        message = str(df[result_entites_column][0])
-        dispatcher.utter_message(text=f"Gửi bạn thông tin {result_entites_column} : {message}")
+        file = tracker.get_slot("file")
+        level = tracker.get_slot("level")
+        if level != None:
+            dispatcher.utter_message(text=f"Bạn vui lòng nói rõ bạn muốn thông tin hồ sơ của cấp nào? Đại học, cao đẳng hay thạc sĩ??")
+        else:
+            message = df.loc[df['Cấp']= level]['Hồ sơ'][0]
+            dispatcher.utter_message(text=f"Gửi bạn thông tin về hồ sơ của cấp {level} : message")
+            
         return []

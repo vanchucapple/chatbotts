@@ -2,10 +2,6 @@ version: "2.0"
 
 rules:
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
 - rule: Greet
   steps:
   - intent: greet
@@ -71,10 +67,26 @@ rules:
   steps:
   - intent: ask_andress
   - action: utter_andress
+- rule: Ask file
+  steps:
+  - intent: ask_file
+  - action: action_search_file
+- rule: Ask file_0
+  steps:
+  - intent: ask_file_0
+  - action: utter_file_0
 - rule: Ask file_1
   steps:
   - intent: ask_file_1
   - action: utter_file_1
+- rule: Ask code
+  steps:
+  - intent: ask_code
+  - action: utter_code
+- rule: Ask studentship
+  steps:
+  - intent: ask_studentship
+  - action: utter_studentship
 - rule: Implementation of the Two-Stage-Fallback
   steps:
   - intent: nlu_fallback

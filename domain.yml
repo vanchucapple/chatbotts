@@ -15,7 +15,14 @@ intents:
   - ask_KTX_2
   - ask_KTX_1
   - ask_andress
+  - ask_file_0
   - ask_file_1
+  - ask_studentship
+  - ask_code
+  - ask_file:
+      use_entities:
+        - level
+        - file
   - info_contacts:
       use_entities:
         - name_info
@@ -33,9 +40,6 @@ intents:
       use_entities:
         - name_column
         - name_major
-  - ask_file:
-      use_entities:
-        - name_column
 entities:
   - name_info
   - phone_info
@@ -44,6 +48,8 @@ entities:
   - name_major
   - name_column
   - name_department
+  - level
+  - file
 slots:
   major:
     auto_fill: true
@@ -66,6 +72,12 @@ slots:
   name_department:
     auto_fill: true
     type: text
+  file:
+    auto_fill: true
+    type: text
+  level:
+    auto_fill: true
+    type: text
 actions:
   - action_search_list_department_major
   - action_get_info
@@ -86,8 +98,8 @@ responses:
   - Hướng dẫn đăng ký xét tuyển\n
   Bạn muốn hỏi thông tin chi tiết nào?
   "
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_file_0:
+  - text: "Thí sinh đến nộp hồ sơ đăng ký xét tuyển trực tiếp ở phòng tuyển sinh của trường hoặc gửi qua đường Bưu điện cho Nhà trường hoặc truy cập vào website: www.tuyensinh.vuted.edu.vn, mục “XÉT TUYỂN TRỰC TUYẾN” để thực hiện đăng ký xét tuyển online."
   utter_file_1:
   - text: "Bạn có thể nhờ người khác nộp thay được. Để xem chi tiết hồ sơ gồm những gì, bạn truy cập vào website này để biết thêm thông tin chi tiết nhé: http://tuyensinh.vuted.edu.vn/ "
   utter_andress:
@@ -121,7 +133,12 @@ responses:
   - text: "Trường có hệ tuyển sinh liên thông chính quy từ Trung cấp lên Đại học và Cao Đẳng lên Đại học. Thời gian đào tạo tối thiểu 1.5 năm "
   utter_please_rephrase:
   - text: "Bạn có thể nói rõ hơn được không?"
-
+  utter_code:
+  - text: " Mã trường Đại học Sư Phạm Kỹ Thuật Vinh là : “SKV”. Thông tin đến bạn!"
+  utter_studentship:
+  - text: "Nhà trường luôn có chính sách cấp học bổng hằng năm dành cho sinh viên:\n
+  - học bổng trợ cấp xã hội : theo quy định của Nhà nước.\n
+  - học bổng khuyến khích học tập: đối với sinh viên có học lực khá và rèn luyện tốt trở lên và lấy theo số lượng quy định mỗi năm của trường."
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
