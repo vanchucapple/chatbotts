@@ -13,13 +13,14 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: DIETClassifier
-  epochs: 40
+  epochs: 200
   use_masked_language_model: True
   embedding_dimension: 30
   connection_density: 0.7
   model_confidence: softmax
   constrain_similarities: True
-
+- name: EntitySynonymMapper
+- name: RegexEntityExtractor
 - name: FallbackClassifier
   threshold: 0.4
 #  ambiguity_threshold: 0.1

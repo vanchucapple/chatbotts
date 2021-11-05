@@ -19,6 +19,7 @@ intents:
   - ask_file_1
   - ask_studentship
   - ask_code
+  - ask_camket
   - ask_file:
       use_entities:
         - level
@@ -85,11 +86,12 @@ actions:
   - action_search_info_major
   - action_search_file
   - action_contacts
+  - action_save_conversation
 responses:
   utter_greet:
   - text: "Chào mừng bạn đến với fanpage tuyển sinh Trường Đại học Sư Phạm Kĩ Thuật Vinh có địa chỉ tại Số 117 đường Nguyễn Viết Xuân-TP Vinh-Tỉnh Nghệ An, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang Web tuyển sinh"
   utter_hotline:
-  - text: "Bạn nhập họ và tên, SĐT sau đó sẽ có người gọi tư vấn trực tiếp đến bạn hoặc bạn có thể chủ động gọi vào hotline sau để gặp người tư vấn: 0926268900"
+  - text: "Bạn nhập họ và tên, SĐT sau đó sẽ có người gọi tư vấn trực tiếp đến bạn hoặc bạn có thể chủ động gọi vào hotline sau để gặp người tư vấn: 02383.833.002"
 
   utter_quick_consultation:
   - text: "Gợi ý các vấn đề có thể bạn quan tâm :\n
@@ -139,6 +141,14 @@ responses:
   - text: "Nhà trường luôn có chính sách cấp học bổng hằng năm dành cho sinh viên:\n
   - học bổng trợ cấp xã hội : theo quy định của Nhà nước.\n
   - học bổng khuyến khích học tập: đối với sinh viên có học lực khá và rèn luyện tốt trở lên và lấy theo số lượng quy định mỗi năm của trường."
+  utter_camket:
+  - text: "Nhà trường cam kết với sinh viên sau khi hoàn thành khóa học như sau:\n
+  - Sinh viên tốt nghiệp có kiến thức chuyên môn sâu rộng, kỹ năng nghề nghiệp vững vàng; có năng lực sáng tạo và tác phong công nghiệp; có kỹ năng mềm, tự tin và cầu tiến để lập nghiệp.\n 
+  - Giới thiệu cho 100% sinh viên tốt nghiệp có việc làm ổn định tạo các doanh nghiệp, tập đoàn lớn trong và ngoài nước.\n
+  - Giới thiệu và cung cấp dịch vụ để SV tham gia xuất khẩu LĐ, du học tại Hàn Quốc, Nhật Bản, Đài Loan, Hungari, Bungaria, Đức và các Quốc gia Trung Đông.
+Để biết rõ thêm thông tin các bạn hãy truy cập website: http://tuyensinh.vuted.edu.vn/"
+  utter_trocap:
+  - text: "Chế độ miễn giảm học phí, trợ cấp xã hội, trợ cấp chi phí học tập cho các đối tượng chính sách theo quy định của nhà nước. Thông tin đến bạn!"
 session_config:
-  session_expiration_time: 60
+  session_expiration_time: 5
   carry_over_slots_to_new_session: true

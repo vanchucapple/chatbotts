@@ -7,8 +7,6 @@ from rasa_sdk.events import SlotSet, AllSlotsReset, SessionStarted, ActionExecut
 import pandas as pd
 
 df = pd.read_excel("Tuyensinh.xlsx")
-
-
 list_name_col = list(df.columns)
 
 def get_matching_entites(entities,list_name,threshold):
@@ -70,7 +68,7 @@ class ActionSearchListDepartmentMajor(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        print("__________________________action_search_list_department_major_______________________")
         department = tracker.get_slot("department")
         major = tracker.get_slot("major")
         name_department = tracker.get_slot("name_department")
@@ -83,13 +81,20 @@ class ActionSearchListDepartmentMajor(Action):
             
             result_entites_department = get_matching_entites(name_department,list_name_department,50)
             
-            message = df.loc[df[result_entites_column] == result_entites_department]['Ngành'].unique()
+            dispatcher.utter_message(text=f"Gửi bạn danh sách các ngành của khoa {result_entites_department} : ")
             
-            dispatcher.utter_message(text=f"Gửi bạn danh sách các ngành của khoa {result_entites_department} : {message} ")
+            for i in df.loc[df[result_entites_column] == result_entites_department]['Ngành'].unique():
+                dispatcher.utter_message(i)
+            
+            
         elif (department != None) & (name_department == None):
-            dispatcher.utter_message(text=f"Gửi bạn danh sách các Khoa của trường : {df['Khoa'].unique()}")
+            dispatcher.utter_message(text=f"Gửi bạn danh sách các Khoa của trường : ")
+            for i in df['Khoa'].unique():
+                dispatcher.utter_message(i)
         elif (department == None) & (name_department == None) & (major != None):
-            dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
+            dispatcher.utter_message(text=f"Trường đang đào tạo {len(df['Ngành'].unique())} ngành. Danh sách các Ngành mà trường đào tạo gồm: ")
+            for i in df['Ngành'].unique():
+                dispatcher.utter_message(i)
         return [AllSlotsReset()]
 
 class ActionGetInfo(Action):
@@ -101,7 +106,7 @@ class ActionGetInfo(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        print("__________________________action_get_info_______________________")
         phone_info = tracker.get_slot("phone_info")
         name_info = tracker.get_slot("name_info")
         print("name_info: ",name_info)
@@ -124,7 +129,8 @@ class ActionSearchExits(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        
+        
         print("__________________________action_search_exits_______________________")
         
         
@@ -163,8 +169,8 @@ class ActionSearchExits(Action):
                 dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
                 dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
             else :
-                message = "Mã ngành: " \
-                + str(df.loc[df['Ngành']== result_entites]['Mã ngành'].values[0])
+                message = " Mã ngành: " \
+                + str(int(df.loc[df['Ngành']== result_entites]['Mã ngành'].values[0]))
                 print(message)
                 dispatcher.utter_message(text=f" Trường có đào tạo Ngành {name_major}." \
                 f"{message}" \
@@ -190,7 +196,7 @@ class ActionSearchInfoMajor(Action):
         print("name_major: ",name_major)
         print("name_column: ",name_column)
         list_major = df['Ngành']
-        result_entites_major = get_matching_entites(name_major,list_major,70)
+        result_entites_major = get_matching_entites(name_major,list_major,50)
         result_entites_column = get_matching_entites(name_column,list_name_col,35)
         print("result_entites_major", result_entites_major)
         print("result_entites_column", result_entites_column)
@@ -221,7 +227,76 @@ class ActionSearchFile(Action):
         if level != None:
             dispatcher.utter_message(text=f"Bạn vui lòng nói rõ bạn muốn thông tin hồ sơ của cấp nào? Đại học, cao đẳng hay thạc sĩ??")
         else:
-            message = df.loc[df['Cấp']= level]['Hồ sơ'][0]
+            message = df.loc[df['Cấp']== level]['Hồ sơ'][0]
             dispatcher.utter_message(text=f"Gửi bạn thông tin về hồ sơ của cấp {level} : message")
             
+        return []
+
+class ActionSaveConversation(Action):
+
+
+    def name(self) -> Text:
+        return "action_save_conversation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        conversation = tracker.events #get all info of conversation
+        # # print(conversation)
+
+        # save to csv
+        import os
+        if not os.path.isfile('chats.csv'):
+            with open('chats.csv', 'w') as file:
+                file.write(
+                    "user_input,intent,entity_name,entity_value,"
+                    "bot_reply\n")
+
+        chat_data = ''
+
+        for i in range(len(conversation)):
+
+            if conversation[i]['event'] == 'user':
+
+                chat_data += conversation[i]['text'] \
+                             + ',' \
+                             + conversation[i]['parse_data']['intent']['name'] \
+                             + ','
+                # # print('user: {}'.format(i['text']))
+
+                if len(conversation[i]['parse_data']['entities']) > 0:
+                    chat_data += str([conversation[i]['parse_data']['entities'][j]['entity']
+                                  for j in range(len(conversation[i]['parse_data'][
+                                                         'entities']))]) \
+                                 + ',' \
+                                 + str([conversation[i]['parse_data']['entities'][j][
+                                            'value']
+                                    for j in range(len(conversation[i]['parse_data'][
+                                                           'entities']))]) \
+                                 + ','
+                    # # print('extra data:',
+                    #       i['parse_data']['entities'][0]['entity'], '=',
+                    #       i['parse_data']['entities'][0]['value'])
+
+                else:
+                    chat_data += ",,"
+
+
+            elif conversation[i]['event'] == 'bot':
+                # # print('Bot: {}'.format(i['text']))
+                if conversation[i-1]['event'] != 'bot':
+                    chat_data += conversation[i]['text'] \
+                                 + '\n'
+                else:
+                    chat_data += ',,,,' \
+                                + conversation[i]['text'] + '\n'
+        else:
+            # print("_________________________________________")
+
+            with open('chats.csv', 'a') as file:
+                file.write(chat_data)
+            chat_data = ''
+        chat_data = []
+        # print(chat_data)
         return []

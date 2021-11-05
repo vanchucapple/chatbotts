@@ -6,6 +6,56 @@ nlu:
   #     - cntt
   #     - công nghệ thông tin
   #     - công nghệ tt
+  - lookup : department
+    examples: |
+      - Khoa Kinh Tế
+      - Khoa Điện
+      - Khoa Kinh Tế
+      - Khoa Công Nghệ Thông Tin
+      - Khoa Điện Tử
+      - Khoa Cơ Khí Động Lực
+      - Khoa Cơ Khí Chế Tạo
+      - Khoa Sư Phạm Kỹ Thuật
+  - lookup: major
+    examples: |
+      - Công nghệ kỹ thuật ô tô
+      - Công nghệ kỹ thuật điện-điện tử
+      - Công nghệ chế tạo máy
+      - Công nghệ kỹ thuật cơ khí
+      - Công nghệ thông tin
+      - Công nghệ kỹ thuật máy tính
+      - Công nghệ kỹ thuật điện tử - viễn thông
+      - Công nghệ kỹ thuật điều khiển và tự động hóa
+      - Sư phạm công nghệ
+      - Kế toán
+      - Quản trị kinh doanh
+      - Quản trị nhân lực
+      - Điện công nghiệp
+      - Điện tử công nghiệp
+      - Hàn
+      - Công nghệ kỹ thuật ô tô
+      - Kế toán doanh nghiệp
+      - Kỹ thuật máy lạnh và điều hòa không khí
+      - Kỹ thuật lắp đặt điện và điều khiển trong CN
+      - Quản trị mạng máy tính
+      - Nguội sửa chữa máy công cụ
+      - Cắt gọt kim loại
+      - Công nghệ kỹ thuật cơ điện tử
+      - Chế tạo thiết bị cơ khí
+      - Lắp đặt thiết bị cơ khí
+      - Maketing thương mại
+      - Công tác xã hội
+      - Bảo trì hệ thống thiết bị cơ khí
+      - Kỹ thuật sửa chữa, lắp ráp  máy tính
+      - Công nghệ kỹ thuật điện, điện tử
+      - Công nghệ kỹ thuật điện tử, truyền thông
+      - Cấp thoát nước
+      - Kỹ Thuật Cơ Khí
+      - Kỹ Thuật Điện
+      - Sư Phạm Kỹ Thuật Điện
+      - Sư Phạm kỹ Thuật Ô tô
+
+
   - intent: greet
     examples: |
       - chào admin
@@ -78,7 +128,7 @@ nlu:
       - số e là [061241223912](phone_info)
   - intent: ask_list_department_major
     examples: |
-      - cho e hỏi trường có bao nhiêu [khoa](department)?
+      - cho e hỏi trường có bao nhiêu [Khoa](department)?
       - cho e xin danh sách các [khoa](department) của trường
       - trường có các [khoa](department) nào ạ?
       - trường gồm các [khoa](department) nào ạ?
@@ -101,6 +151,8 @@ nlu:
       - dạ cho e hỏi trường có các [ngành](major) học nào?
       - dạ cho e xin danh sách các [ngành](major) của trường
       - trường có các [ngành](major) học nào ?
+      - trường có bao nhiêu [ngành](major) ạ?
+      - trường có bao nhiêu [ngành](major)?
       - danh sách các [ngành](major) của trường
       - trường mình có các [ngành](major) nào?
       - trường mình có bao nhiêu [ngành](major) ạ?
@@ -187,8 +239,8 @@ nlu:
   - intent: ask_exist
     examples: |
       - thông tin ngành [công nghệ thông tin](name_major)
-      - cho e xem thông tin ngành [công nghệ thông tin](name_major)
-      - dạ cho e hỏi thông tin ngành [công nghệ thông tin](name_major)
+      - cho e xem thông tin ngành [công nghệ kỹ thuật ô tô](name_major)
+      - dạ cho e hỏi thông tin ngành [công nghệ kỹ thuật ô tô](name_major)
       - ad cho e xin thông tin ngành [công nghệ thông tin](name_major) 
       - thông tin ngành [công nghệ thông tin](name_major)
       - thông tin ngành [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"}
@@ -196,11 +248,6 @@ nlu:
       - dạ cho e hỏi thông tin ngành [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"}
       - ad cho e xin thông tin ngành [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"}
       - thông tin ngành [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"}
-      - thông tin ngành [công nghệ kỹ thuật ô tô](name_major)
-      - cho e xem thông tin ngành [công nghệ kỹ thuật ô tô](name_major)
-      - dạ cho e hỏi thông tin ngành [công nghệ kỹ thuật ô tô](name_major)
-      - ad cho e xin thông tin ngành [công nghệ kỹ thuật ô tô](name_major) 
-      - thông tin ngành [công nghệ kỹ thuật ô tô](name_major)
       - cho e hỏi trường có ngành [công nghệ kỹ thuật ô tô](name_major) không ạ?
       - cho e hỏi trường có ngành [Công nghệ kỹ thuật cơ khí](name_major) không ạ?
       - trường có ngành [quản trị kinh doanh](name_major) không ạ?
@@ -298,13 +345,22 @@ nlu:
       - dạ thầy cô cho e hỏi [học phí](name_column) ngành  [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"} bao nhiêu vậy ạ?
       - dạ thầy cô cho e hỏi [học phí](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
       - [học phí](name_column) ngành [công nghệ thông tin](name_columns) bao nhiêu ạ?
+      - [học phí](name_column) ngành [công nghệ thông tin](name_columns) bn ạ?
       - [học phí](name_column)  [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"} bao nhiêu một kỳ ạ?
+      - [học phí](name_column)  [cntt]{"entity":"name_major" ,"value" : "công nghệ thông tin"} bn một kỳ ạ?
       - [học phí](name_column) ngành [công nghệ kỹ thuật cơ khí](name_columns) bao nhiêu ạ?
-      - cho e hỏi [học phí](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
+      - [học phí](name_column) ngành [công nghệ kỹ thuật cơ khí](name_columns) bnhieu ạ?
+      - [học phí](name_column) ngành [công nghệ kỹ thuật cơ khí](name_columns) bnhieu?
+      - [học phí](name_column) ngành [công nghệ kỹ thuật cơ khí](name_columns) bnhieu
+      - [học phí](name_column) của ngành [sư phạm công nghệ](name_major)?
+      - [học phí](name_column) của ngành [công nghệ thông tin](name_major) bn?
       - dạ cho e hỏi [học phí](name_column) của ngành [sư phạm công nghệ](name_major)?
       - dạ cho e hỏi [học phí](name_columns) của ngành [sư phạm công nghệ](name_major)
       - ngành [sư phạm công nghệ](name_major) [học phí](name_column) bao nhiêu ạ?
+      - ngành [sư phạm công nghệ](name_major) [học phí](name_column) bnhieu ạ?
       - ngành [kỹ thuật điện tử viễn thông] có [học phí](name_column) bao nhiêu ạ?
+      - ngành [kỹ thuật điện tử viễn thông] có [học phí](name_column) bn ạ?
+      - ngành [kỹ thuật điện tử viễn thông] có [học phí](name_column) bnhiu ạ?
       - dạ cho e hỏi ngành [công nghệ thông tin](name_major) có [học phí](name_column) bao nhiêu ạ?
       - dạ cho e hỏi ngành [chế tạo máy](name_major) có [học phí](name_column) bao nhiêu ạ?
       - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [học phí](name_column) bao nhiêu?
@@ -374,19 +430,14 @@ nlu:
       - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [thời gian học](name_column) bao nhiêu ạ?
       - dạ ad cho e hỏi ngành [chế tạo máy](name_major) [thời gian đào tạo](name_column) mấy ạ?
       - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [thời gian đào tạo](name_column) mấy ạ?
-      - cho e hỏi [ra trường làm việc gì](name_column) của ngành [kỹ thuật máy tính](name_major) bao nhiêu ạ?
-      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [ra trường làm việc gì](name_column) của ngành bao nhiêu?
-      - dạ ad cho e hỏi [ra trường làm việc gì](name_column) ngành [quản trị kinh doanh](name_major) bao nhiêu ạ?
-      - dạ thầy cô cho e hỏi [ra trường làm việc gì](name_column) của ngành [công nghệ kỹ thuật điều khiển và tự động hóa](name_major)?
-      - cho e hỏi [ra trường làm việc gì](name_column) của ngành [Công nghệ kỹ thuật cơ khí](name_major)?
-      - dạ cho e hỏi [ra trường làm việc gì](name_column) của ngành [sư phạm công nghệ](name_major)?
-      - ngành [kỹ thuật điện tử viễn thông] có [ra trường làm việc gì](name_column) bao nhiêu ạ?
-      - dạ cho e hỏi ngành [chế tạo máy](name_major) [ra trường làm việc gì](name_column) như nào ạ?
-      - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [ra trường làm việc gì](name_column) bao nhiêu?
-      - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) có [ra trường làm việc gì](name_column) như nào ạ?
-      - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [ra trường làm việc gì](name_column) bao nhiêu ạ?
-      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) có [ra trường làm việc gì](name_column) mấy ạ?
-      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [ra trường làm việc gì](name_column) mấy ạ?
+      - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [ra trường làm việc](name_column) gì?
+      - ngành [kỹ thuật điện tử viễn thông] [ra trường làm việc gì](name_column)?
+      - dạ cho e hỏi ngành [chế tạo máy](name_major) [ra trường làm việc gì](name_column) ạ?
+      - dạ cho e hỏi ngành [quản trị nhân lực](name_major) [ra trường làm việc](name_column)?
+      - ad cho e hỏi ngành [Công nghệ kỹ thuật cơ khí](name_major) [ra trường làm việc](name_column) như nào ạ?
+      - dạ ad cho e hỏi ngành [quản trị nhân lực](name_major) [ra trường làm việc](name_column) gì ạ?
+      - dạ ad cho e hỏi ngành [chế tạo máy](name_major) [ra trường làm việc](name_column) như nào ạ?
+      - dạ ngành [công nghệ kỹ thuật máy tính](name_major) [ra trường làm việc](name_column)?
       - cho e hỏi [chương trình đào tạo](name_column) của ngành [kỹ thuật máy tính](name_major) ?
       - ad cho e hỏi [công nghệ kỹ thuật điều khiển và tự động hóa](name_major) [chương trình đào tạo](name_column) những gì ạ?
       - dạ ad cho e hỏi [chương trình đào tạo](name_column) ngành [quản trị kinh doanh](name_major) là đào tạo cái gì?
@@ -587,3 +638,25 @@ nlu:
       - em điểm cao có được học bổng không 
       - làm sao để được học bổng ạ?
       - học bổng
+  - intent: ask_camket
+    examples: |
+      - nhà trường có cam kết gì đối với sinh viên sau khi ra trường không ạ
+      - cam kết đối với sinh viên
+      - nhà trường có cam kết gì không ạ
+      - trường có cam kết sau khi tốt nghiệp không
+      - có cam kết giới thiệu việc làm sau khi ra trường không.
+      - em muốn biết về những cam kết của nhà trường sau khi tốt nghiệp ạ
+      - em muốn biết những cam kết của nhà trường
+      - nhà trường có giới thiệu việc làm sau khi tốt nghiệp không
+      - cam kết khi ra trường
+      - cam kết việc làm
+  - intent: ask_trocap
+    examples: |
+      - cho e hỏi về chế độ trợ cấp
+      - e muốn hỏi về chế độ trợ cấp
+      - đi học em có được trợ cấp gì không?
+      - chế độ trợ cấp
+      - trợ cấp xã hội
+      - trường mình có trợ cấp xã hội không ạ?
+      - trợ cấp cho sinh viên
+      - trợ cấp

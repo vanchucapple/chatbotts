@@ -11,7 +11,7 @@ stories:
   - action: utter_hotline
   - intent: info_contacts
   - action: action_get_info
-
+  - action: action_save_conversation
 - story: ask list department_major
   steps:
   - intent: ask_list_department_major
@@ -20,6 +20,7 @@ stories:
       - department: khoa
       - name_department: công nghệ thông tin
   - action: action_search_list_department_major
+  - action: action_save_conversation
 - story: ask info contacts
   steps:
   - intent: info_contacts
@@ -27,14 +28,17 @@ stories:
       - name_info: Nguyễn Văn Long
       - phone_info: 01249312412
   - action: action_get_info
+  - action: action_save_conversation
 
 - story: ask exits of major
   steps:
   - intent: ask_exist
     entities:
-      - name_major: quản trị kinh doanh
+      - name_major: cntt
+        value: Công nghệ thông tin
       - name_column: xét học bạ
   - action: action_search_exits
+  - action: action_save_conversation
 
 - story: ask search info each major
   steps:
@@ -43,6 +47,7 @@ stories:
       - name_major: quản trị kinh doanh
       - name_column: học phí
   - action: action_search_info_major
+  - action: action_save_conversation
 
 - story: ask file
   steps:
