@@ -8,7 +8,7 @@ import pandas as pd
 
 df = pd.read_excel("Tuyensinh.xlsx")
 list_name_col = list(df.columns)
-
+list_major = df['Ngành']
 def get_matching_entites(entities,list_name,threshold):
 
     result_match = dict()
@@ -120,61 +120,80 @@ class ActionGetInfo(Action):
             dispatcher.utter_message(text=f"Bạn vui lòng đợi sẽ có người chủ động gọi tư vấn cho bạn. Cảm ơn!")
         return [AllSlotsReset()]
 
-class ActionSearchExits(Action):
+class ActionSearchMajorExits(Action):
+    
+    def name(self) -> Text:
+        return "action_search_major_exits"
+    def  run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        print("_______________________action_search_major_exits___________________")
+        name_major = tracker.get_slot("name_major")
+        result_name_major = get_matching_entites(name_major,list_major,60)
+        if result_name_major != []:
+            message = " Mã ngành: " \
+                    + str(int(df.loc[df['Ngành']== result_name_major]['Mã ngành'].values[0]))
+            print(message)
+            dispatcher.utter_message(text=f"Trường có đào tạo Ngành {name_major}." \
+            f"{message}" \
+            f". Bạn có thể tham khảo chi tiết tại http://tuyensinh.vuted.edu.vn/. Bạn muốn hỏi gì thêm về Ngành này không?")
+        else:
+            dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
+            dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
+        
+class ActionSearchColumnsExits(Action):
 
 
     def name(self) -> Text:
-        return "action_search_exits"
+        return "action_search_column_exits"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
+        print("_______________________action_search_column_exits___________________")
         
-        print("__________________________action_search_exits_______________________")
-        
-        
-        name_department = tracker.get_slot("name_department")
+    
         name_major = tracker.get_slot("name_major")
-        name_column = tracker.get_slot("name_column")
-        print("name_department: ",name_department)
+        name_column_exits = tracker.get_slot("name_column_exits")
         print("name_major: ",name_major)
-        print("name_column: ",name_column)
-        list_major = df['Ngành']
+        print("name_column_exits: ",name_column_exits)
         
-        result_entites = get_matching_entites(name_major,list_major,60)
-        result_name_column = get_matching_entites(name_column,list_name_col,30)
+        result_name_major = get_matching_entites(name_major,list_major,60)
+        result_name_column_exits = get_matching_entites(name_column_exits,list_name_col,30)
         
-        if name_column != None:
+        if name_column_exits != None:
             
             if name_major == None:
             
-                dispatcher.utter_message(text=f" Bạn vui lòng nói rõ bạn đang tìm thông tin gì của ngành nào giúp mình!")
+                dispatcher.utter_message(text=f"Bạn vui lòng nói rõ bạn đang tìm thông tin gì và của ngành nào giúp mình!")
             else :
                 
-                if result_entites == []:
-                    dispatcher.utter_message(text=f"Ngành {result_entites}  trường không đào tạo. Thông tin đến bạn!")
+                if result_name_major == []:
+                    dispatcher.utter_message(text=f"Ngành {result_name_major}  trường không đào tạo. Thông tin đến bạn!")
                 else:
                     
-                    if df.loc[df['Ngành']== result_entites][result_name_column].values[0] != []:
-                        dispatcher.utter_message(text=f"Ngành {name_major} " f"trường có đào tạo và còn có thể {result_name_column}" f" nha bạn.")
+                    if df.loc[df['Ngành']== result_name_major][result_name_column_exits].values[0] != []:
+                        dispatcher.utter_message(text=f"Ngành {name_major} " f"trường có đào tạo và còn có thể {result_name_column_exits}" 
+                        f". Bạn muốn hỏi thêm thông tin gì về ngành này không?")
                         
                     else: 
-                        dispatcher.utter_message(text=f"Ngành {name_major} " f"trường có đào tạo và không {result_name_column}" 
+                        dispatcher.utter_message(text=f"Ngành {name_major} " f"trường có đào tạo và không {result_name_column_exits}" 
                         f". Thông tin đến bạn")
                         
-        elif (name_column == None) & (name_major != None):
-            print("result_entites: ",result_entites)
-            if result_entites == []:
+        elif (name_column_exits == None) & (name_major != None):
+            print("result_name_major: ",result_name_major)
+            if result_name_major == []:
                 dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
                 dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
-            else :
-                message = " Mã ngành: " \
-                + str(int(df.loc[df['Ngành']== result_entites]['Mã ngành'].values[0]))
-                print(message)
-                dispatcher.utter_message(text=f" Trường có đào tạo Ngành {name_major}." \
-                f"{message}" \
-                f". Bạn có thể tham khảo chi tiết tại http://tuyensinh.vuted.edu.vn/. Bạn muốn hỏi gì thêm về Ngành này không?")
+            # else :
+            #     message = " Mã ngành: " \
+            #     + str(int(df.loc[df['Ngành']== result_name_major]['Mã ngành'].values[0]))
+            #     print(message)
+            #     dispatcher.utter_message(text=f" Trường có đào tạo Ngành {name_major}." \
+            #     f"{message}" \
+            #     f". Bạn có thể tham khảo chi tiết tại http://tuyensinh.vuted.edu.vn/. Bạn muốn hỏi gì thêm về Ngành này không?")
         return []
     
 
@@ -195,16 +214,29 @@ class ActionSearchInfoMajor(Action):
         name_major = tracker.get_slot("name_major")
         print("name_major: ",name_major)
         print("name_column: ",name_column)
-        list_major = df['Ngành']
         result_entites_major = get_matching_entites(name_major,list_major,50)
         result_entites_column = get_matching_entites(name_column,list_name_col,35)
         print("result_entites_major", result_entites_major)
         print("result_entites_column", result_entites_column)
+        
         if name_major == None:
             
             dispatcher.utter_message(text=f"Bạn vui lòng hỏi rõ hơn, bạn "
                                         f"đang tìm kiếm thông tin gì cho chuyên ngành nào?")
-        else:
+        elif (name_column == None) & (name_major != None):
+            if result_entites_major != []:
+                message = " Mã ngành: " \
+                        + str(int(df.loc[df['Ngành']== result_entites_major]['Mã ngành'].values[0]))
+                print(message)
+                dispatcher.utter_message(text=f"Trường có đào tạo Ngành {name_major}." \
+                f"{message}" \
+                f". Bạn có thể tham khảo chi tiết tại http://tuyensinh.vuted.edu.vn/. Bạn muốn hỏi gì thêm về Ngành này không?")
+            else:
+                dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}")
+                dispatcher.utter_message(text=f"Dách sách các Ngành mà trường đào tạo gồm: \n {df.Ngành}")
+                
+        
+        elif (name_column != None) & (name_major != None):
             if result_entites_major == []:
                 dispatcher.utter_message(text=f" Trường không đào tạo Ngành {name_major}. Thông tin đến bạn!")
             else:
@@ -232,6 +264,36 @@ class ActionSearchFile(Action):
             
         return []
 
+class ActionSearchFile(Action):
+
+    def name(self) -> Text:
+        return "action_search_file"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        button = {
+            "type": "postback",
+            "title": "Thông tin hồ sơ cấp đại học",
+            "payload": "/daihoc"
+        }
+        button1 = {
+            "type": "postback",
+            "title": "Thông tin hồ sơ cấp cao đẳng",
+            "payload": "/caodang"
+        }
+
+        button2 = {
+            "type": "postback",
+            "title": "Thông tin hồ sơ cấp thạc sĩ",
+            "payload": "thacsi"
+        }
+
+        ret_text = "Bạn vui lòng chọn một trong các phương thức tư vấn sau: "
+        dispatcher.utter_message(text=ret_text, buttons=[button, button1, button2])
+
+        return []
+    
 class ActionSaveConversation(Action):
 
 

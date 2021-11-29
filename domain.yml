@@ -14,16 +14,15 @@ intents:
   - ask_KTX_3
   - ask_KTX_2
   - ask_KTX_1
-  - ask_andress
-  - ask_file_0
+  - ask_adress
+  - ask_file
   - ask_file_1
   - ask_studentship
   - ask_code
   - ask_camket
-  - ask_file:
-      use_entities:
-        - level
-        - file
+  - daihoc
+  - caodang
+  - thacsi
   - info_contacts:
       use_entities:
         - name_info
@@ -33,10 +32,13 @@ intents:
         - department
         - major
         - name_department
-  - ask_exist:
+  - ask_column_exits:
       use_entities:
         - name_major
-        - name_column
+        - name_column_exits
+  - ask_major_exist:
+      use_entities:
+        - name_major
   - ask_search_info_major:
       use_entities:
         - name_column
@@ -49,8 +51,7 @@ entities:
   - name_major
   - name_column
   - name_department
-  - level
-  - file
+  - name_column_exits
 slots:
   major:
     auto_fill: true
@@ -73,20 +74,18 @@ slots:
   name_department:
     auto_fill: true
     type: text
-  file:
-    auto_fill: true
-    type: text
-  level:
+  name_column_exits:
     auto_fill: true
     type: text
 actions:
   - action_search_list_department_major
   - action_get_info
-  - action_search_exits
+  - action_search_major_exits
   - action_search_info_major
   - action_search_file
   - action_contacts
-  - action_save_conversation
+  - action_search_column_exits
+  # - action: action_save_conversation
 responses:
   utter_greet:
   - text: "Chào mừng bạn đến với fanpage tuyển sinh Trường Đại học Sư Phạm Kĩ Thuật Vinh có địa chỉ tại Số 117 đường Nguyễn Viết Xuân-TP Vinh-Tỉnh Nghệ An, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang Web tuyển sinh"
@@ -100,12 +99,54 @@ responses:
   - Hướng dẫn đăng ký xét tuyển\n
   Bạn muốn hỏi thông tin chi tiết nào?
   "
-  utter_file_0:
-  - text: "Thí sinh đến nộp hồ sơ đăng ký xét tuyển trực tiếp ở phòng tuyển sinh của trường hoặc gửi qua đường Bưu điện cho Nhà trường hoặc truy cập vào website: www.tuyensinh.vuted.edu.vn, mục “XÉT TUYỂN TRỰC TUYẾN” để thực hiện đăng ký xét tuyển online."
+  utter_file_daihoc:
+  - text: " Thông tin liên quan đến hồ sơ đại học như sau:\n
+   - Phương thức đăng ký xét tuyển: Thí sinh nộp hồ sơ đăng ký xét tuyển TRỰC TIẾP hoặc gửi qua đường Bưu điện cho Nhà trường hoặc ĐĂNG KÝ ONLINE bằng cách truy cập vào website: www.tuyensinh.vuted.edu.vn, mục “XÉT TUYỂN TRỰC TUYẾN” để thực hiện đăng ký xét tuyển online.\n
+     - Hồ sơ xét tuyển theo kết quả thi tốt nghiệp THPT năm 2021: Thí sinh nộp hồ sơ ĐKXT tại các trường THPT hoặc tại các Sở GD&ĐT.\n
+
+     - Hồ sơ xét tuyển theo kết quả học tập THPT (học bạ) bao gồm: \n
+
+     + Phiếu đăng ký xét tuyển (theo mẫu, có thể tải từ Website của Nhà trường).\n
+     + Học bạ THPT (bản photocopy có công chứng).\n
+     + Bằng tốt nghiệp hoặc Giấy chứng nhận tốt nghiệp THPT tạm thời đối với thí sinh tốt nghiệp năm 2021(bản photocopy có công chứng).\n
+     + Chứng minh nhân dân (bản photocopy có công chứng)\n
+     + Các giấy tờ chứng nhận ưu tiên (nếu có).\n
+     + 01 Phong bì ghi rõ họ tên, số điện thoại, địa chỉ của người nhận."
+  
+  utter_file_caodang:
+  - text: " Thông tin liên quan đến hồ sơ cao đẳng như sau:\n
+  Hồ sơ xét tuyển cao đẳng gồm:\n
+    - Phiếu đăng ký xét tuyển (theo mẫu);
+    - Bản sao hợp lệ giấy chứng nhận kết quả thi THPT năm 2021 (xét theo phương thức 1) hoặc bản sao học bạ THPT (xét theo phương thức 2);\n
+    - Bản sao hợp lệ bằng tốt nghiệp THPT hoặc giấy chứng nhận tốt nghiệp tạm thời;\n
+    - Chứng minh nhân dân (bản sao công chứng);\n
+    - Các giấy tờ chứng nhận ưu tiên (nếu có);\n
+    - 02 Phong bì có dán tem, ghi rõ địa chị nơi ở để nhà trường gửi giấy báo nhập học.L16"
+  utter_file_thacsi:
+  - text: "  - Hồ sơ dự thi bao gồm (*):\n
+    a. Đơn xin dự thi;\n
+    b. Bản sao văn bằng tốt nghiệp, bảng điểm (công chứng), các chứng chỉ đã chuyển đổi kiến thức (nếu có). Thí sinh học đại học liên thông, văn bằng hai thì phải có bản sao Bằng và Bảng điểm của bậc học trước đó. Thí sinh có bằng tốt nghiệp đại học do cơ sở đào tạo ở nước ngoài cấp thì phải có văn bản xác nhận văn bằng đại học của Cục Khảo thí và kiểm định chất lượng giáo dục, Bộ GD&ĐT;\n
+    c. Sơ yếu lý lịch có xác nhận của cơ quan hoặc chính quyền địa phương;\n
+    d. Giấy chứng nhận đủ sức khoẻ (của bệnh viện đa khoa, có thời hạn trong vòng 6 tháng);\n
+    e. Chứng minh thư (photo);\n
+    f. 04 ảnh hồ sơ cỡ 3 x 4 cm; 02 phong bì ghi rõ địa chỉ liên lạc"
+  utter_adress_for_file_caodang_thacsi:
+  - text: "Thí sinh đến nộp hồ sơ đăng ký xét tuyển theo các hình thức sau: \n
+  - Trực tiếp ở phòng tuyển sinh của trường.\n
+  - Hoặc gửi qua đường Bưu điện cho Nhà trường\n
+   \n
+  Địa chỉ nộp hồ sơ của trường : Ban Tuyển Sinh-Trường Đại Học Sư phạm Kỹ thuật Vinh 117-đường Nguyễn Viết Xuân-TP Vinh-tỉnh Nghệ An. Thông tin đến bạn!"
+  utter_adress_for_file_daihoc:
+  - text: "Thí sinh đến nộp hồ sơ đăng ký xét tuyển theo các hình thức sau: \n
+  - Trực tiếp ở phòng tuyển sinh của trường.\n
+  - Hoặc gửi qua đường Bưu điện cho Nhà trường\n
+  - Hoặc truy cập vào website: www.tuyensinh.vuted.edu.vn, mục “XÉT TUYỂN TRỰC TUYẾN” và làm theo hướng dẫn để thực hiện đăng ký xét tuyển online.\n
+   \n
+  Địa chỉ nộp hồ sơ của trường : Ban Tuyển Sinh-Trường Đại Học Sư phạm Kỹ thuật Vinh 117-đường Nguyễn Viết Xuân-TP Vinh-tỉnh Nghệ An. Thông tin đến bạn!"
   utter_file_1:
   - text: "Bạn có thể nhờ người khác nộp thay được. Để xem chi tiết hồ sơ gồm những gì, bạn truy cập vào website này để biết thêm thông tin chi tiết nhé: http://tuyensinh.vuted.edu.vn/ "
-  utter_andress:
-  - text: "Địa chỉ nộp hồ sơ của trường : Ban Tuyển Sinh-Trường Đại Học Sư phạm Kỹ thuật Vinh 117-đường Nguyễn Viết Xuân-TP Vinh-tỉnh Nghệ An. Thông tin đến bạn!"
+  utter_adress:
+  - text: "Địa chỉ của trường : Ban Tuyển Sinh-Trường Đại Học Sư phạm Kỹ thuật Vinh 117-đường Nguyễn Viết Xuân-TP Vinh-tỉnh Nghệ An. Thông tin đến bạn!"
   utter_KTX_1:
   - text: "Ký túc xá cho phép được nấu ăn bạn nhé! Thông tin đến bạn"
   utter_KTX_2:
@@ -150,5 +191,5 @@ responses:
   utter_trocap:
   - text: "Chế độ miễn giảm học phí, trợ cấp xã hội, trợ cấp chi phí học tập cho các đối tượng chính sách theo quy định của nhà nước. Thông tin đến bạn!"
 session_config:
-  session_expiration_time: 5
-  carry_over_slots_to_new_session: true
+  session_expiration_time: 1
+  carry_over_slots_to_new_session: false

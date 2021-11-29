@@ -7,95 +7,109 @@ rules:
   - intent: greet
   - action: utter_greet
   - action: action_contacts
-  - action: action_save_conversation
+ 
 - rule: Choice contacts hotline
   steps:
   - intent: hotline
   - action: utter_hotline
-  - action: action_save_conversation
+ 
 - rule: Choice quick consultation
   steps:
   - intent: quick_consultation
   - action: utter_quick_consultation
-  - action: action_save_conversation
+ 
 - rule: Ask list department or major
   steps:
   - intent: info_contacts
   - action: action_get_info
-  - action: action_save_conversation
+ 
 - rule: Ask lienthong
   steps:
   - intent: ask_lienthong
   - action: utter_lienthong
-  - action: action_save_conversation
+ 
 - rule: Ask vb2
   steps:
   - intent: ask_vb2
   - action: utter_vb2
-  - action: action_save_conversation
+ 
 - rule: Ask intern
   steps:
   - intent: ask_intern
   - action: utter_intern
-  - action: action_save_conversation
+ 
 - rule: Ask discount
   steps:
   - intent: ask_discount
   - action: utter_discount
-  - action: action_save_conversation
+ 
 - rule: Ask KTX_4
   steps:
   - intent: ask_KTX_4
   - action: utter_KTX_4
-  - action: action_save_conversation
+ 
 - rule: Ask KTX_3
   steps:
   - intent: ask_KTX_3
   - action: utter_KTX_3
-  - action: action_save_conversation
+ 
 - rule: Ask KTX_2
   steps:
   - intent: ask_KTX_2
   - action: utter_KTX_2
-  - action: action_save_conversation
+ 
 - rule: Ask KTX_1
   steps:
   - intent: ask_KTX_1
   - action: utter_KTX_1
-  - action: action_save_conversation
+ 
 - rule: Ask andress
   steps:
-  - intent: ask_andress
-  - action: utter_andress
-  - action: action_save_conversation
-- rule: Ask file_0
+  - intent: ask_adress
+  - action: utter_adress
+ 
+- rule: Ask file
   steps:
-  - intent: ask_file_0
-  - action: utter_file_0
-  - action: action_save_conversation
+  - intent: ask_file
+  - action: action_search_file
+- rule: Ask file_daihoc
+  steps:
+  - intent: daihoc
+  - action: utter_file_daihoc
+  - action: utter_adress_for_file_daihoc
+- rule: Ask file_caodang
+  steps:
+  - intent: caodang
+  - action: utter_file_caodang
+  - action: utter_adress_for_file_caodang_thacsi
+- rule: Ask file_thacsi
+  steps:
+  - intent: thacsi
+  - action: utter_file_thacsi
+  - action: utter_adress_for_file_caodang_thacsi
 - rule: Ask file_1
   steps:
   - intent: ask_file_1
   - action: utter_file_1
-  - action: action_save_conversation
+ 
 - rule: Ask code
   steps:
   - intent: ask_code
   - action: utter_code
-  - action: action_save_conversation
+ 
 - rule: Ask studentship
   steps:
   - intent: ask_studentship
   - action: utter_studentship
-  - action: action_save_conversation
+ 
 - rule: Implementation of the Two-Stage-Fallback
   steps:
   - intent: nlu_fallback
   - action: utter_please_rephrase
-  - action: action_save_conversation
+ 
 - rule: Ask cam ket
   steps:
   - intent: ask_camket
   - action: utter_camket
-  - action: action_save_conversation
+ 
   
