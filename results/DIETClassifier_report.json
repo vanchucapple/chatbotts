@@ -1,0 +1,85 @@
+{
+  "name_column_exits": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 160,
+    "confused_with": {}
+  },
+  "name_column": {
+    "precision": 0.9936908517350158,
+    "recall": 1.0,
+    "f1-score": 0.9968354430379747,
+    "support": 315,
+    "confused_with": {}
+  },
+  "department": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 95,
+    "confused_with": {}
+  },
+  "name_info": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 43,
+    "confused_with": {}
+  },
+  "phone_info": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 9,
+    "confused_with": {}
+  },
+  "name_department": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 218,
+    "confused_with": {}
+  },
+  "name_columns": {
+    "precision": 1.0,
+    "recall": 0.9411764705882353,
+    "f1-score": 0.9696969696969697,
+    "support": 34,
+    "confused_with": {
+      "name_column": 2
+    }
+  },
+  "major": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 16,
+    "confused_with": {}
+  },
+  "name_major": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 810,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9988235294117647,
+    "recall": 0.9988235294117647,
+    "f1-score": 0.9988235294117647,
+    "support": 1700
+  },
+  "macro avg": {
+    "precision": 0.9992989835261129,
+    "recall": 0.9934640522875817,
+    "f1-score": 0.9962813791927716,
+    "support": 1700
+  },
+  "weighted avg": {
+    "precision": 0.9988309519391353,
+    "recall": 0.9988235294117647,
+    "f1-score": 0.998807565603917,
+    "support": 1700
+  }
+}

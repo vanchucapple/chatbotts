@@ -74,17 +74,28 @@ class ActionSearchListDepartmentMajor(Action):
         name_department = tracker.get_slot("name_department")
         print("department: ",department)
         print("major: ",major)
+        print("name_department: ",name_department)
+        list_name_col = ['Khoa', 'Ngành']
         if (department != None) & (name_department != None):
             list_name_department = df['Khoa']
             
-            result_entites_column = get_matching_entites(department,list_name_col,50)
+            result_entites_column = get_matching_entites(department,list_name_col,20)
             
-            result_entites_department = get_matching_entites(name_department,list_name_department,50)
+            result_entites_department = get_matching_entites(name_department,list_name_department,30)
+            print(result_entites_column, result_entites_department)
             
-            dispatcher.utter_message(text=f"Gửi bạn danh sách các ngành của khoa {result_entites_department} : ")
-            
-            for i in df.loc[df[result_entites_column] == result_entites_department]['Ngành'].unique():
-                dispatcher.utter_message(i)
+            if result_entites_department == []:
+                dispatcher.utter_message(text=f"Bạn có thể nói rõ hơn đang tìm khoa nào được không ")
+                
+            else:
+                dispatcher.utter_message(text=f"Gửi bạn danh sách các ngành của khoa {result_entites_department} : ")
+                listnganh = df.loc[df[result_entites_column] == result_entites_department]['Ngành'].unique()
+                for i in range(len(listnganh)):
+                    listnganh[i] = str(i+1) + "  "+ listnganh[i]
+                str1 = '\n'.join(str(e) for e in listnganh)
+                
+                dispatcher.utter_message(str1)
+                
             
             
         elif (department != None) & (name_department == None):
@@ -93,8 +104,12 @@ class ActionSearchListDepartmentMajor(Action):
                 dispatcher.utter_message(i)
         elif (department == None) & (name_department == None) & (major != None):
             dispatcher.utter_message(text=f"Trường đang đào tạo {len(df['Ngành'].unique())} ngành. Danh sách các Ngành mà trường đào tạo gồm: ")
-            for i in df['Ngành'].unique():
-                dispatcher.utter_message(i)
+            listnganh = df['Ngành'].unique()
+            for i in range(len(listnganh)):
+                listnganh[i] = str(i+1) + "  "+ listnganh[i]
+            str1 = '\n'.join(str(e) for e in listnganh)
+            
+            dispatcher.utter_message(str1)
         return [AllSlotsReset()]
 
 class ActionGetInfo(Action):

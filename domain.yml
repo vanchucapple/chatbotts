@@ -22,6 +22,7 @@ intents:
   - ask_camket
   - daihoc
   - caodang
+  - bye
   - thacsi
   - info_contacts:
       use_entities:
@@ -89,6 +90,8 @@ actions:
 responses:
   utter_greet:
   - text: "Chào mừng bạn đến với fanpage tuyển sinh Trường Đại học Sư Phạm Kĩ Thuật Vinh có địa chỉ tại Số 117 đường Nguyễn Viết Xuân-TP Vinh-Tỉnh Nghệ An, bạn hãy nhấn vào “Tư vấn nhanh” để nhận được câu trả lời nhanh. Nhấn vào liên hệ hotline để được tư vấn trực tiếp, nhấn vào website để tới trang Web tuyển sinh"
+  utter_bye:
+  - text: "Vâng bạn!!"
   utter_hotline:
   - text: "Bạn nhập họ và tên, SĐT sau đó sẽ có người gọi tư vấn trực tiếp đến bạn hoặc bạn có thể chủ động gọi vào hotline sau để gặp người tư vấn: 02383.833.002"
 

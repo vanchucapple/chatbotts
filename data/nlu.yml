@@ -73,7 +73,14 @@ nlu:
       - dạ ad cho e hỏi
       - ad ơi cho em hỏi
       - dạ thầy cô cho em hỏi
-
+  - intent: bye
+    examples: |
+      - oke bye
+      - bye
+      - tạm biệt
+      - oke cảm ơn
+      - bye thanks
+      
   - intent: quick_consultation
     examples: |
       - e muốn được tư vấn nhanh
@@ -259,6 +266,11 @@ nlu:
       - cho e hỏi [khoa](department) [cơ khí chế tạo](name_department) có những ngành nào?
       - danh sách các ngành của [khoa](department) [cơ khí chế tạo](name_department)
       - cho e xin danh sách các ngành [khoa](department) [cơ khí chế tạo](name_department)?
+      - danh sách ngành của [khoa](department) [cơ khí chế tạo](name_department)
+      - cho e xin danh sách các ngành của [khoa](department) [cơ khí chế tạo](name_department)
+      - [khoa](department) [cơ khí chế tạo](name_department) có những ngành nào?
+      - danh sách [khoa](department) [cơ khí chế tạo](name_department) có ngành nào?
+
   - intent: ask_major_exist
     examples: |
       - thông tin ngành [công nghệ thông tin](name_major)
